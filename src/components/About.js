@@ -56,50 +56,13 @@ const About = () => {
                          </ArrowDeco>
                     </AbsoluteRelative> 
                  </OneBigDivDeco>
-                  
-
-
-            <AboutContentDiv>
-                
-                <AboutFirstFlexLayer> 
-                
-                    <AboutInfoNextToPortrait>
-                        <AboutMainTitle>ABOUT</AboutMainTitle>
-                        <AboutSubTitle>Full stack web developper specialized in user interactions</AboutSubTitle>
-                        <AboutTechnologiesDiv className="mobile-wrap" >  
-                            <PopIconsImg onEnterHandler={popupHandler} popElement={<span>Javascript</span>} onOutHandler={popupOut} src={javaScrUrl}  /> 
-                            <PopIconsImg onEnterHandler={popupHandler} popElement={<span>Typescript</span>} onOutHandler={popupOut} src={typeScrUrl}   /> 
-                            <PopIconsImg onEnterHandler={popupHandler} popElement={<span>HTML5</span>} onOutHandler={popupOut} src={htmlUrl}  /> 
-                            <PopIconsImg onEnterHandler={popupHandler} popElement={<span>Canvas</span>} onOutHandler={popupOut} src={canvasUrl}   /> 
-                            <PopIconsImg onEnterHandler={popupHandler} popElement={<span>Node</span>} onOutHandler={popupOut} src={nodeUrl}   /> 
-                            <PopIconsImg onEnterHandler={popupHandler} popElement={<span>React</span>} onOutHandler={popupOut} src={reactUrl}   /> 
-                            <PopIconsImg onEnterHandler={popupHandler} popElement={<span>MongoDB</span>} onOutHandler={popupOut} src={mongoUrl}  /> 
-                            <PopIconsImg onEnterHandler={popupHandler} popElement={<span>Git</span>} onOutHandler={popupOut} src={gitUrl}  />  
-                            
-                            
-                        </AboutTechnologiesDiv> 
-                            
-                     
-                        <AboutSubTitle >Most recent projects:</AboutSubTitle>
-
-                        </AboutInfoNextToPortrait>
+                   
+                        <AboutMainTitle>ABOUT</AboutMainTitle> 
                         
                         <AboutPortrait className="portrait">  
                         </AboutPortrait>  
 
-                        
-                     </AboutFirstFlexLayer>
-
-
-                     <AboutProjectsDiv className="mobile-wrap"> 
-                            <ProjectsPreviewDiv>
-                                <ProjectWithDesc project={projects[0]}/>  
-                            </ProjectsPreviewDiv>
-                            <ProjectsPreviewDiv>
-                                <ProjectWithDesc project={projects[1]}/>  
-                            </ProjectsPreviewDiv>  
-                     </AboutProjectsDiv>
-            </AboutContentDiv>
+                          
             <CoolPopup popup={popup} />
         </AboutDiv> 
     )
@@ -261,11 +224,12 @@ const AboutPortrait = styled.div`
 `
 
 const AboutMainTitle = styled.div` 
-max-width: 90%;
+width: 100%;
 font-family:  zero4B, 'Courier New', Courier, monospace; 
 border-bottom:0.4rem solid white ;
 color:white;
 font-size:4rem; 
+margin-bottom: 0.75rem;
 filter: drop-shadow(0.1rem 0rem 0 ${GoodOrange}) drop-shadow(0.25rem 0.25rem 0 ${GoodOrange});
 `
 const AboutSubTitle = styled.div`
@@ -312,6 +276,7 @@ margin-bottom: 0.5rem;
 
 
 
+ 
 &:hover{ 
     background-color: rgba(12,12,12);
     filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(2px 0 0 ${GoodOrange}) drop-shadow(-2px 0 0 ${GoodOrange}) drop-shadow(0 2px 0 ${GoodOrange}) drop-shadow(0 -2px 0 ${GoodOrange});; 

@@ -21,6 +21,9 @@ const ProjectWithDesc = ({project}) =>{
                 <ProjectTitle> {project.name} </ProjectTitle>
 
                 <ProjectDiv >
+                        <LoaderImg 
+                        src={anim? _gifUrl:_pngUrl}
+                        /> 
                     <ProjectDesc >
                         {project.desc} 
 
@@ -47,9 +50,6 @@ const ProjectWithDesc = ({project}) =>{
                         </ProjectFeatures>
                     
                     </ProjectDesc> 
-                        <LoaderImg 
-                        src={anim? _gifUrl:_pngUrl}
-                        /> 
                 </ProjectDiv> 
 
          </BigProjectDiv>
@@ -77,17 +77,17 @@ const BigProjectDiv = styled.div`
     transition: 200ms ease-out; 
     border: 2px white solid;
     z-index: 1; 
-    margin-bottom:3rem; 
-    width: 100%; 
-    max-width: 88vw;
-    margin-left:auto;
-    margin-right:auto;
+    margin-bottom:1rem; 
+    width: 100%;  
+    max-width: 88vw; 
+    
     &:hover{ 
-        scale: 1.1;
+        scale: 1.10;
         z-index: 99;
          background-color: #444444; 
         filter: drop-shadow(-0.25rem 0 0 ${GoodOrange}) drop-shadow(0 0.25rem 0 ${GoodOrange}) drop-shadow(0.25rem -0.25rem 0 ${GoodOrange});
     } 
+    
 `
 
 const ProjectTitle = styled.div`
@@ -104,15 +104,17 @@ filter: drop-shadow(-0.15rem 0 0 black) drop-shadow(0 0.15rem 0 black) drop-shad
 `
 
 const ProjectDesc = styled.div` 
+background: rgba(0, 0, 0,0.20);
 font-family: tinos;
 display: inline-block; 
 font-size: 1.2rem;
 vertical-align: top;    
-height:100%;
-min-width: calc((55%) - (0.5rem) - (2px)); 
+min-height:100%;
+min-width: calc((50%) - (0.5rem) - (2px)); 
 padding:0.25rem; 
 padding-top:1.5rem;
-max-width: calc((55%) - (0.5rem)); 
+border-radius: 20px;
+max-width: calc((50%) - (0.5rem)); 
 `
 const ProjectTechs = styled.div`
 font-size: 1rem;
@@ -141,7 +143,7 @@ text-align: center;
 vertical-align: top;
 font-size: 2.5rem; 
 border-radius: 10px;   
-display: flex;
+display: flex; 
 `
 const Loader = styled.div` 
 background-repeat: no-repeat;
@@ -156,11 +158,13 @@ min-height: 50%;
 `
 
 const LoaderImg = styled.img` 
-min-width: 45%;
-max-width: 45%; 
-border-top-right-radius: 6%;
-border-end-end-radius: 6%;
+min-width: 50%;
+max-width: 50%; 
+border-top-left-radius: 6%;
+border-end-start-radius: 6%;
 border-left: 2px white solid; 
+box-shadow: rgba(0, 0, 0,0.25) 5px 0px, rgba(0, 0, 0,0.20) 10px 0px, rgba(0, 0, 0,0.15) 15px 0px, rgba(0, 0, 0,0.10) 20px 0px, rgba(0, 0, 0,0.05) 25px 0px;
+
 
 `
 

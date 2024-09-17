@@ -23,7 +23,7 @@ function App() {
   const [popup,setPopup] = useState([false,0,0,<></>]); 
     const [anim,setAnim] = useState(false);
     let startSelect = 0;
-    if (window.location.pathname === "/projects") { startSelect = 1;}
+    if (window.location.pathname === "/projects") { startSelect = 0;}
 
     const [selection,setSelection] = useState(startSelect);
 
@@ -66,19 +66,18 @@ function App() {
                 <div> Renaud Cormier</div>
               </MainFrame>
               <Flex1Div></Flex1Div>
-              <FlexFrameDiv>  
-                  <Link to="/"><SubFrame 
-                  {...( selection === 0 ? {className:"selected"}:{})}
-                  onClick={()=>{setSelection(0);}}
-                  >Main-About</SubFrame></Link>  
-                  
-              <Flex1Div></Flex1Div>
-              <Flex1Div></Flex1Div>
+              <FlexFrameDiv>   
                   <Link to="/projects" 
                   ><SubFrame 
                   {...( selection === 1 ? {className:"selected"}:{})}
                   onClick={()=>{setSelection(1);}}
-                  >Projects</SubFrame></Link> 
+                  >GAME DESIGN</SubFrame></Link> 
+              <Flex1Div></Flex1Div>
+              <Flex1Div></Flex1Div>
+              <Link to="/"><SubFrame 
+                  {...( selection === 0 ? {className:"selected"}:{})}
+                  onClick={()=>{setSelection(0);}}
+                  >About</SubFrame></Link>   
               <Flex1Div></Flex1Div>
               </FlexFrameDiv>
               <Flex1Div></Flex1Div>
@@ -88,9 +87,7 @@ function App() {
 
             <IconsFrameDiv> 
 
-                        <IconsIndividualDiv>
-                            <a href={"https://github.com/renaud-c-portfolio/"} target=" _blank" rel="noreferrer noopener"><PopContactsImg src={githubUrl} popElement={<span>Go to Github</span>} onEnterHandler={popupHandler}  onOutHandler={popupOut} /></a>
-                         
+                        <IconsIndividualDiv> 
                             <a href={"mailto:renaud.c.portfolio@gmail.com"} target=" _blank" rel="noreferrer noopener" ><PopContactsImg src={emailUrl} popElement={<span>Send E-Mail</span>} onEnterHandler={popupHandler}  onOutHandler={popupOut}/></a> 
                         </IconsIndividualDiv> 
               

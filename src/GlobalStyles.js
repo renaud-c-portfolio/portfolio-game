@@ -9,8 +9,13 @@ export default createGlobalStyle`
 
 
 html, body {
+    min-width: 95vw;
     max-width: 100vw;
     font-family: 'tinos', Arial, serif;
+    
+    scrollbar-width: 20px; 
+    scrollbar-gutter: 20px;
+    overflow-x: hidden;
   }
 
 html {
@@ -140,11 +145,8 @@ html {
   q:before, q:after { 
   }
 
-  body {   
-    background-repeat: repeat-x;
-    background-image: linear-gradient(to right, RGB(31, 30, 30), RGB(31, 30, 30)), linear-gradient(to right, RGB(23, 21, 21), RGB(23, 21, 21));
-    background-position: 0 0, 0 100vh;
-    background-size: 100% 100vh, 100% 999vh;
+  body {    
+    background: #131513;
   }
 
   h1 {
