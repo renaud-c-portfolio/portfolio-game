@@ -28,11 +28,16 @@ const Projects = () =>{
     const [popup,setPopup] = useState([false,0,0,<></>]); 
     const [anim,setAnim] = useState(false);
 
-    let rem = 7;
+    let rem = 6;
     
     if (window.matchMedia('(max-device-width: 1000px)').matches)
     {
         rem = 16;
+    }
+    
+    else if (window.matchMedia('(max-device-width: 300px)').matches)
+    {
+        rem = 7;
     }
     else if (window.matchMedia('(max-device-width: 400px)').matches)
     {
@@ -256,6 +261,13 @@ border-bottom:0.4rem solid white ;
 color:white;
 font-size:4rem; 
 margin-bottom: 0.75rem;
+
+margin-top: 3rem;
+@media only screen and (min-device-width: 1000px)
+{
+    margin-top:0px;
+}
+
 filter: drop-shadow(0.1rem 0rem 0 ${GoodOrange}) drop-shadow(0.25rem 0.25rem 0 ${GoodOrange});
 `
 const AboutSubTitle = styled.div`

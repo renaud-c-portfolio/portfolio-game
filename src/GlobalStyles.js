@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import zero4Burl from './assets/zero4B_03_.ttf';
 import superstarUrl from './assets/superstar.ttf';
 import tinosUrl from './assets/Tinos-Regular.ttf';
+import robotoUrl from './assets/Roboto-Regular.ttf';
+import robotoBoldUrl from './assets/Roboto-Bold.ttf';
 const GoodOrange = "rgb(255,110,0)";
 
 
@@ -10,8 +12,38 @@ const GoodOrange = "rgb(255,110,0)";
 
 
 export default createGlobalStyle`  
+
+@font-face {
+  font-family: 'zero4B';
+  src: url(${zero4Burl}) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+  font-family: 'superstar';
+  src: url(${superstarUrl}) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+  font-family: 'roboto-bold';
+  src: url(${robotoBoldUrl}) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url(${robotoUrl}) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
  
 html { 
+  font-family: 'roboto';
   position: relative; 
   min-height: 100%; 
   scrollbar-color: ${GoodOrange} black;  
@@ -43,7 +75,7 @@ html {
   height:5rem; 
   padding:1rem;
 }  
-@media only screen and (min-device-width: 300px) {
+@media only screen and (min-device-width: 320px) {
   html {
     font-size:7px; 
   } 
@@ -83,29 +115,8 @@ html {
     height:4rem; 
     padding:1rem;
   }
-}
- 
+} 
 
-  @font-face {
-  font-family: 'zero4B';
-  src: url(${zero4Burl}) format('truetype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
-}
-
-@font-face {
-  font-family: 'superstar';
-  src: url(${superstarUrl}) format('truetype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
-}
-
-@font-face {
-  font-family: 'tinos';
-  src: url(${tinosUrl}) format('truetype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
-}
  
 
   html, body, div, span, applet, object, iframe,
@@ -150,7 +161,7 @@ html {
     position: relative;
     min-width: 95vw;
     max-width: 100vw;
-    font-family: 'tinos', Arial, serif;
+    font-family: 'roboto', Arial, serif;
      
     margin: 0;
     overflow-x: hidden;

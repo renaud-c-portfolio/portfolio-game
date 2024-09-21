@@ -82,7 +82,6 @@ const BigProjectDiv = styled.div`
     margin-bottom:1rem; 
     width: 100%;  
     max-width: 88vw;   
-    
     &.mouse-over{ 
         scale: 1.08;
         z-index: 99;
@@ -148,7 +147,7 @@ border-radius: 5%;
 `
 
 const ProjectDesc = styled.div` 
-font-family: sans-serif; 
+font-family: 'roboto'; 
 height: 17.5rem;
 min-width: calc((50%) - (0.5rem) - (2px)); 
 padding:0.25rem;  
@@ -159,25 +158,26 @@ max-width: calc((50%) - (0.5rem));
 const ProjectShortDesc = styled.div`
     width:100%;
     color:${GoodOrange};
-    font-family: 'tinos';  
+    font-family: 'roboto-bold';  
     margin-bottom:0.5rem;
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin-top:-0.6rem;
     @media only screen and (min-device-width: 1000px)
     {
         margin-top:1.5rem;
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 `
 const ProjectFeatures = styled.div` 
     text-align: left;    
-    font-size:1.8rem;
+    font-size:1.7rem;
     margin-right:0.75rem;
     @media only screen and (min-device-width: 1000px)
     {
         font-size:1.3rem;
     }
+
 &::marker {
         color:${GoodOrange};
     }

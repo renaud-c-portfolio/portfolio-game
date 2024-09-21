@@ -52,8 +52,11 @@ const About = () => {
                                 <AboutParagraph> 
                                     Renaud is a game designer with years of experience making games.
                                  </AboutParagraph>
+                                 <AboutParagraph>
+                                Battling the concept of randomness, especially "random results", he avoids dice rolls and % critical hits. Yet despite it all he can't help but go back to fun group boardgames.
+                                </AboutParagraph>
                                 <AboutParagraph>
-                                He likes to play old fighting games with robots in them.
+                                He likes to play old fighting games with robots in them. Those usually aren't random.
                                 </AboutParagraph>
                             </AboutText>
                             <AboutPortrait/>   
@@ -87,14 +90,12 @@ const GoodOrange = "rgb(255,110,0)"
 
   
 const AboutDiv = styled.div`  
-font-size: 2.2rem;
-font-family: sans-serif;
+font-size: 1.6rem;
 width: 100%;  
 max-width: 1400px; 
 margin-top:2rem;  
 color:white; 
-height: calc(100vh - 60px - 4.5rem);
-max-height: auto;
+min-height: calc(100vh - 60px - 4.1rem);
 `
 const AbsoluteRelative = styled.div`
 z-index:40;
