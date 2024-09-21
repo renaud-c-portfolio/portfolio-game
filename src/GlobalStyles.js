@@ -12,41 +12,40 @@ const GoodOrange = "rgb(255,110,0)";
 export default createGlobalStyle`  
  
 html { 
-  position: relative;
-  font-size:16px;   
+  position: relative; 
   min-height: 100%; 
   scrollbar-color: ${GoodOrange} black;  
   width:100vw;
+  font-size:5px; 
 } 
-  
+   
+.mobile-preview{
+  width:96%; 
+} 
+.mobile-wrap{
+  flex-wrap: wrap;
+  justify-content:flex-start; 
+  align-items: flex-start;
+  max-width: 70%;
+  gap:5px;
+}
+.tech-icons{
+  width: 4rem;  
+  transition: all 200ms ease-out;
+  &:hover{  
+      width: 4.5rem; 
+      filter: brightness(0) invert(1)   drop-shadow(2px 0 0 ${GoodOrange}) drop-shadow(-2px 0 0 ${GoodOrange}) drop-shadow(0 2px 0 ${GoodOrange}) drop-shadow(0 -2px 0 ${GoodOrange});
+  }
 
-@media only screen and (min-device-width: 280px) {
+}
+.tech-orbs{ 
+  width: 5rem;  
+  height:5rem; 
+  padding:1rem;
+}  
+@media only screen and (min-device-width: 300px) {
   html {
     font-size:7px; 
-  } 
-  .mobile-preview{
-    width:96%; 
-  } 
-  .mobile-wrap{
-    flex-wrap: wrap;
-    justify-content:flex-start; 
-    align-items: flex-start;
-    max-width: 70%;
-    gap:5px;
-  }
-  .tech-icons{
-    width: 4rem;  
-    transition: all 200ms ease-out;
-    &:hover{  
-        width: 4.5rem; 
-        filter: brightness(0) invert(1)   drop-shadow(2px 0 0 ${GoodOrange}) drop-shadow(-2px 0 0 ${GoodOrange}) drop-shadow(0 2px 0 ${GoodOrange}) drop-shadow(0 -2px 0 ${GoodOrange});
-    }
-
-  }
-  .tech-orbs{ 
-    width: 5rem;  
-    height:5rem; 
-    padding:1rem;
   } 
 }
 @media only screen and (min-device-width: 400px) {
