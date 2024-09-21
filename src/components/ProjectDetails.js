@@ -17,6 +17,8 @@ const ProjectDetails = ({project}) =>{
     } 
     console.log(detailUrls);
 
+    const mobile = window.matchMedia('(max-device-width: 1000px)').matches; 
+
     return (  
 
         
@@ -26,6 +28,7 @@ const ProjectDetails = ({project}) =>{
                     back
 
                 </BackButton></Link>
+
                 <DetailsMainTitle> {project.name} </DetailsMainTitle>
                 {
                             project.details.map((detail,index)=>{
@@ -122,7 +125,7 @@ width: 100%;
 font-family:  zero4B, 'Courier New', Courier, monospace; 
 border-bottom:0.4rem solid white ;
 color:white;
-margin-bottom: 2.5rem;
+margin-bottom: 3.5rem;
 filter: drop-shadow(0.1rem 0rem 0 ${GoodOrange}) drop-shadow(0.25rem 0.25rem 0 ${GoodOrange});
 
 font-size:3.5rem; 
@@ -137,6 +140,11 @@ display: flex;
 align-items: center; 
 margin-bottom:5rem;
 gap:2rem;
+flex-direction: row;
+@media only screen and (min-device-width: 1000px)
+    {
+        flex-direction: row;
+    }
 `
 
 const DetailsParagraph = styled.div`
@@ -176,8 +184,14 @@ const DetailsImage = styled.img`
 flex: 2;
 min-height: 20rem;  
 max-height:45vh;
-max-width:55%;
 object-fit: contain; 
+
+
+max-width:50%;
+@media only screen and (min-device-width: 1000px)
+    {
+        max-width:55%;
+    }
 
 filter: drop-shadow(4px 0 0 white) 
         drop-shadow(0 4px 0 white)
