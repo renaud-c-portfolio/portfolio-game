@@ -140,7 +140,6 @@ gap:2rem;
 `
 
 const DetailsParagraph = styled.div`
-font-size:1.6rem;
 flex: 2;
 & a{
     text-decoration: underline;
@@ -152,6 +151,13 @@ flex: 2;
 & ul{
     margin-left:2rem;
 } 
+
+
+font-size:2rem;
+@media only screen and (min-device-width: 1000px)
+    {
+        font-size:1.6rem;
+    }
 `
 
 const DetailsVideo = styled.video` 
