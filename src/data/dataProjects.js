@@ -1,6 +1,6 @@
 const projects = [
     {
-        name: "Creature Battle",
+        name: "Monstrous Aspect",
         desc: "Monster Battler",
         longDesc: "<p>Create a team of powerful monsters!</p> <p> Customize your creatures!</p><p>Battle Opponents Online!</p>",
 
@@ -21,7 +21,7 @@ const projects = [
         details: ["An extremely ambitious game initially made during a 3-day Toronto Game Jam. <br/><br/>We reached our goal of making a space exploration game within which many events were available, from exploring plants and its strange denizens to meeting other spacefaring, intelligent alien peoples and becoming friends or foe. <br/><br/>The combat system is also an innovative take on the turn-based formula, where your crew alters your possible actions drastically and also counts as your 'hit points' equivalent."
             ,"This was made with a large team: Francis Coulombe, LordMo and VVMedia on art, Justin Stander and I on programming, Cboyardee on music and Lurdiak on writing, though everyone contributed to working on events."
         ],
-        detailsSrc: ["cosmic-video.mp4","game/cosmic-png.png"],
+        detailsSrc: ["game/cosmic-video.mp4","game/cosmic-png.png"],
 
         src: "game/cosmic-png.png", 
         vid: "game/cosmic-video.mp4",

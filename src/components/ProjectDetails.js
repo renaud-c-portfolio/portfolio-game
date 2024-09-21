@@ -105,10 +105,15 @@ padding-left:3rem;
 padding-top: 1rem;
 padding-bottom: 1rem;
 border:none;
-margin-top:-0.5rem;
 z-index: 99;
 pointer-events: all;
 cursor: pointer;
+margin-top:-1rem;
+@media only screen and (min-device-width: 1000px)
+    {
+        margin-top:-0.5rem;
+    }
+
 `
 
 const DetailsMainTitle = styled.div` 
@@ -117,9 +122,14 @@ width: 100%;
 font-family:  zero4B, 'Courier New', Courier, monospace; 
 border-bottom:0.4rem solid white ;
 color:white;
-font-size:4rem; 
 margin-bottom: 2.5rem;
 filter: drop-shadow(0.1rem 0rem 0 ${GoodOrange}) drop-shadow(0.25rem 0.25rem 0 ${GoodOrange});
+
+font-size:3.5rem; 
+@media only screen and (min-device-width: 1000px)
+    {
+        font-size:4rem;
+    }
 `
 
 const DetailFlexDiv = styled.div`
