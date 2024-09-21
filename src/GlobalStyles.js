@@ -5,30 +5,28 @@ import tinosUrl from './assets/Tinos-Regular.ttf';
 const GoodOrange = "rgb(255,110,0)";
 
 
-export default createGlobalStyle` 
 
 
-html, body {
-    min-width: 95vw;
-    max-width: 100vw;
-    font-family: 'tinos', Arial, serif;
-    
-    scrollbar-width: 20px; 
-    scrollbar-gutter: 20px;
-    overflow-x: hidden;
-  }
-
-html {
-  font-size:16px;
-}
 
 
+export default createGlobalStyle`  
+ 
+html { 
+  position: relative;
+  font-size:16px;   
+  min-height: 100%; 
+  scrollbar-color: ${GoodOrange} black;  
+  width:100vw;
+} 
   
 
 @media only screen and (min-device-width: 280px) {
   html {
-    font-size:8px; 
-  }
+    font-size:7px; 
+  } 
+  .mobile-preview{
+    width:96%; 
+  } 
   .mobile-wrap{
     flex-wrap: wrap;
     justify-content:flex-start; 
@@ -49,16 +47,20 @@ html {
     width: 5rem;  
     height:5rem; 
     padding:1rem;
-  }
-  .portrait{ 
-    min-width: 12rem;
-    min-height:18rem;
-  }
+  } 
+}
+@media only screen and (min-device-width: 400px) {
+  html {
+    font-size:8px; 
+  } 
 }
 @media only screen and (min-device-width: 1000px) {
   html { 
     font-size:16px; 
   }
+  .mobile-preview{
+    width:48%;
+  } 
   .mobile-wrap{ 
     flex-wrap: nowrap;
     justify-content:center;
@@ -81,10 +83,6 @@ html {
     width: 4rem;  
     height:4rem; 
     padding:1rem;
-  }
-  .portrait{ 
-    min-width: 14rem;
-    min-height:21rem;
   }
 }
  
@@ -143,14 +141,37 @@ html {
   }
   blockquote:before, blockquote:after,
   q:before, q:after { 
-  }
-
-  body {    
-    background: #131513;
-  }
+  } 
 
   h1 {
     font-size:3rem; 
+  }
+
+  body {
+    position: relative;
+    min-width: 95vw;
+    max-width: 100vw;
+    font-family: 'tinos', Arial, serif;
+     
+    margin: 0;
+    overflow-x: hidden;
+  
+    max-height: 100%;
+
+
+
+     
+      
+  } 
+
+  body::-webkit-scrollbar-track {
+    background: black;        /* color of the tracking area */
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: ${GoodOrange};    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid black;  /* creates padding around scroll thumb */
   }
 
 `;

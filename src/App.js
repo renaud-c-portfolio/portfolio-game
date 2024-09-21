@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { useState,useContext, useRef, useEffect } from "react";   
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import About from "./components/About"; 
-import Projects from "./components/Projects";
+import Projects from "./components/Projects"; 
+import ProjectDetails from "./components/ProjectDetails.js";
 import Contact from "./components/Contact"; 
 import CoolPopup from "./components/CoolPopup";
 
@@ -15,17 +16,23 @@ import itchUrl from "./assets/icon-itch.svg";
 
 import bgUrl from "./assets/background-wave.png";
 
+import { projects } from "./data/dataProjects.js"
 
-
+let height = String(document.body)+"px";
+console.log(height);
 
 function App() {
 
   const [popup,setPopup] = useState([false,0,0,<></>]); 
     const [anim,setAnim] = useState(false);
+    
     let startSelect = 0;
     if (window.location.pathname === "/projects") { startSelect = 0;}
+    else if (window.location.pathname === "/about") { startSelect = 1;}
+    else if (window.location.pathname.substring(0,8) === "/project") { startSelect = 2;}
+    else {  startSelect = 0;}
 
-    const [selection,setSelection] = useState(startSelect);
+    const [selection,setSelection] = useState(startSelect); 
 
     const imgRef = useRef();
      
@@ -48,19 +55,24 @@ function App() {
             setAnim(false);
         },2000) 
         }
-        ,[])
+        ,[])  
 
-  
+
+      const clickCheckPath = () => {
+        console.log("babon");
+        if (window.location.pathname === "/projects") { setSelection(0); console.log("0");}
+        else if (window.location.pathname === "/about") { setSelection(1); console.log("1");}
+        else if (window.location.pathname.substring(0,8) === "/project")  { setSelection(2); console.log("2");}
+        else { setSelection(0);}  
+      }
 
   
   return ( 
     
-    <BrowserRouter>
-    <BackgroundDiv> 
-    </BackgroundDiv>
-    <MainDiv>
+    <BrowserRouter> 
+    <MainDiv onClick={clickCheckPath}> 
       <FrameDiv> 
-        <CenteringDiv className="mobile-content">
+        <CenteringDiv>
             <MobileWrapCheckDiv className="mobile-wrap">
               <MainFrame>
                 <div> Renaud Cormier</div>
@@ -69,14 +81,14 @@ function App() {
               <FlexFrameDiv>   
                   <Link to="/projects" 
                   ><SubFrame 
-                  {...( selection === 1 ? {className:"selected"}:{})}
-                  onClick={()=>{setSelection(1);}}
+                  {...( selection === 0 ? {className:"selected"}:{})}
+                  onClick={()=>{setSelection(0);}}
                   >GAME DESIGN</SubFrame></Link> 
               <Flex1Div></Flex1Div>
               <Flex1Div></Flex1Div>
-              <Link to="/"><SubFrame 
-                  {...( selection === 0 ? {className:"selected"}:{})}
-                  onClick={()=>{setSelection(0);}}
+              <Link to="/about"><SubFrame 
+                  {...( selection === 1 ? {className:"selected"}:{})}
+                  onClick={()=>{setSelection(1);}}
                   >About</SubFrame></Link>   
               <Flex1Div></Flex1Div>
               </FlexFrameDiv>
@@ -97,11 +109,19 @@ function App() {
 
       {/* separation between FrameDiv and ContentDiv */}
       <GhostDiv>
-          <CenteringDiv className="mobile-content"> 
+          <CenteringDiv className="backgrounded"> 
               <Routes>
-                  <Route path="/" element={<About/>} />
-                  <Route path="/projects" element={<Projects/>} />
-                  <Route path="/contact" element={<Contact/>} /> 
+                  <Route path="/" element={<Projects/>} /> 
+                  <Route path="/projects" element={<Projects/>} /> 
+                  <Route path="/about" element={<About/>} />
+
+                  {projects.map((project,index)=>{
+
+                    return (  
+                         <Route path={"/project"+String(index)} element={<ProjectDetails project={project} />} /> 
+                    )
+                    })}
+ 
               </Routes>
           </CenteringDiv>  
         </GhostDiv>
@@ -127,43 +147,55 @@ const PopContactsImg = ({imgRef,src,onEnterHandler,onOutHandler,popElement}) =>{
 
 const GoodOrange = "rgb(255,110,0)";
 const shadowColor = "#FF5522";
-
-const BackgroundDiv = styled.div`
-position: absolute;
-min-width: 100vw;
-height:100%; 
-z-index:0; 
-background: url(${bgUrl});
-background-position-y: 20vh;
-background-repeat: repeat-x;  
-background-size:cover;
-opacity:0;
-
-`
+ 
 const MainDiv = styled.div`   
 position:absolute;
 width:100%;   
-min-height: 100vh; 
-background:transparent;
+min-height: 100%; 
+height:fit-content; 
 z-index:1;
+
+background:#191919;
+@media only screen and (min-device-width: 1000px) { 
+
+  background-image: repeating-linear-gradient(135deg, 
+      #131313, 
+      #131313 100px, 
+      black 100px, 
+      black 105px, 
+      #131313 105px, 
+      #131313 130px, 
+      #1C0D0B 130px, 
+      #1C0D0B 260px, 
+      black 260px, 
+      black 265px, 
+      #1C0D0B 265px, 
+      #1C0D0B 270px, 
+      #444444 270px, 
+      #444444 330px);  
+} 
+background-blend-mode: overlay;
+
 `
 
-const GhostDiv = styled.div` 
-margin-top:25px;
-width: 100%;
+const GhostDiv = styled.div`  
+width: 100%; 
 display:flex;  
 justify-content: space-between; 
 align-items: center; 
-
+margin-top:0.5rem;
+min-height: 100%;
 `
 
-const FrameDiv = styled.div` 
+const FrameDiv = styled.div`   
+position: relative;
+z-index:5;
 padding-top: 0.75rem;
 padding-bottom: 0.75rem;
 color:white; 
 background-color: rgb(255,110,0);
 width: 100%;
-min-height: 60px; 
+height: 70px;  
 display:flex;  
 justify-content: flex-start; 
 align-items: flex-start;
@@ -272,8 +304,7 @@ margin:5px;
 cursor: pointer;
 filter: brightness(0) invert(1) drop-shadow(0px 0 0 yellow)  drop-shadow(0px 0 0 yellow);
 transition: all 200ms ease-out;
-&:hover{
-
+&:hover{ 
     filter: brightness(0) invert(0.5)  drop-shadow(2px 0 0 yellow) drop-shadow(-2px 0 0 yellow) drop-shadow(0 2px 0 yellow) drop-shadow(0 -2px 0 yellow);
 }
 `
@@ -294,7 +325,30 @@ max-width: 1200px;
 display: flex;
 flex-direction: row;
 align-items: center;
-justify-content: space-between;
+justify-content: space-between;   
+position:relative;
+
+padding-left:10px;
+padding-right:10px;
+margin-top:-0.5rem;  
+@media only screen and (min-device-width: 1000px) {
+  min-width:1200px;
+  padding-left:60px;
+  padding-right:60px;
+}
+
+&.backgrounded {
+  background: #131313; 
+  
+  @media only screen and (min-device-width: 1000px) {
+     filter: drop-shadow(16px 0 0 rgba(0,0,0,0.5)) 
+        drop-shadow(-16px 0 0 rgba(0,0,0,0.5))
+        drop-shadow(32px 0 0 rgba(0,0,0,0.5)) 
+        drop-shadow(-32px 0 0 rgba(0,0,0,0.5));
+  }
+
+}
+ 
 `
 
 export default App;

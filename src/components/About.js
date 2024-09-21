@@ -45,6 +45,27 @@ const About = () => {
     return (
  
         <AboutDiv> 
+                   
+                        <AboutMainTitle>ABOUT</AboutMainTitle> 
+                        <AboutFlexDiv>
+                            <AboutText>
+                                <AboutParagraph> 
+                                    Renaud is a game designer with years of experience making games.
+                                 </AboutParagraph>
+                                <AboutParagraph>
+                                He likes to play old fighting games with robots in them.
+                                </AboutParagraph>
+                            </AboutText>
+                            <AboutPortrait/>   
+                        </AboutFlexDiv>
+                          
+            <CoolPopup popup={popup} />
+        </AboutDiv> 
+    )
+}  
+
+/*          one day we will fix The Arrow
+
          
                 <OneBigDivDeco {...(anim ?{className:"anim"}:{})}>
                      <AbsoluteRelative> 
@@ -56,62 +77,27 @@ const About = () => {
                          </ArrowDeco>
                     </AbsoluteRelative> 
                  </OneBigDivDeco>
-                   
-                        <AboutMainTitle>ABOUT</AboutMainTitle> 
-                        
-                        <AboutPortrait className="portrait">  
-                        </AboutPortrait>  
 
-                          
-            <CoolPopup popup={popup} />
-        </AboutDiv> 
-    )
-} 
-/*<TechNamesButton
-onClick={(event)=>{event.preventDefault();}}
->display all tech names</TechNamesButton>*/ 
-
-const PopIconsImg = ({imgRef,src,onEnterHandler,onOutHandler,popElement}) =>{
-    return (
-        <TechIconsOrbDiv className="tech-orbs" >
-            <TechIconsImg elemento={popElement} src={src} 
-                onMouseEnter={(event)=>{
-                    onEnterHandler(popElement,event.target);
-                }} 
-                onMouseOut={(onOutHandler)}
-                className="tech-icons"
-            /> 
-    </TechIconsOrbDiv>
-    )
-}
+*/
 
 //styling starts----------------------------------------
 const GoodOrange = "rgb(255,110,0)"
-
-const TechNamesButton = styled.button`
-    margin-left:3vw;
-    color:white;
-    background: black; 
-    border:none;
-    cursor:help;
-    &:hover{
-        color:${GoodOrange};
-    } 
-    &:active{
-        outline: inherit;
-        border:inherit;
-    }
-`
+ 
 
 
   
 const AboutDiv = styled.div`  
+font-size: 2.2rem;
+font-family: sans-serif;
 width: 100%;  
 max-width: 1400px; 
 margin-top:2rem;  
 color:white; 
+height: calc(100vh - 60px - 4.5rem);
+max-height: auto;
 `
 const AbsoluteRelative = styled.div`
+z-index:40;
 position: sticky;
 max-width:1px;
 max-height: 1px;
@@ -126,16 +112,17 @@ transition: 2000ms opacity ease-in-out;
 filter: drop-shadow(4px 0 0 black) 
         drop-shadow(0 4px 0 black)
         drop-shadow(-4px 0 0 black)
-        drop-shadow(0 -4px 0 black);
-        z-index: 1;
+        drop-shadow(0 -4px 0 black); 
 &.anim{
     opacity: 1;
 }
+z-index:50;
 `
 
  
 const ArrowDecoSide = styled.div`
 
+z-index:40;
 position: relative;
 left:11.6rem;
 top:-4.6rem;
@@ -145,6 +132,7 @@ background-color: white;
 `
 
 const ArrowDecoSecond = styled.div`
+z-index:40;
     position: relative;
     left:11.6rem;
     top:-4.6rem;
@@ -154,6 +142,7 @@ const ArrowDecoSecond = styled.div`
 
 `
 const ArrowDecoSideTwo = styled.div`
+z-index:40;
 
 position: relative;
 left:53.6rem;
@@ -165,6 +154,7 @@ background-color: white;
 
 
 const ArrowDeco = styled.div`
+z-index:40;
     position: relative;
     left: 53.6rem;
     top: -6.1rem;
@@ -174,6 +164,7 @@ const ArrowDeco = styled.div`
 
 `
 const ArrowImg = styled.div` 
+z-index:40;
 background-image: url(${arrowUrl});
 background-size:contain;
 background-repeat: no-repeat;
@@ -187,32 +178,28 @@ position: relative;
  left:92%; 
 `
 
-const AboutFirstFlexLayer = styled.div`
-width: 100%;
-height: 100%;
+const AboutFlexDiv = styled.div`
 display: flex;
-flex-direction: row; 
-align-items: flex-start;
-justify-content: space-between;
-`
-
-const AboutInfoNextToPortrait = styled.div`     
-display: flex;
+gap:2rem;
 flex-direction: column;
-justify-content: space-between; 
-min-height: 100%;
+
+@media only screen and (min-device-width: 1000px) { 
+    flex-direction: row;
+}
+
 `
 
-const AboutContentDiv = styled.div` 
-width: 100%;
-min-height:100%;
-color:white; 
-z-index: 3; 
-display:flex;
-flex-direction: column;     
-` 
+const AboutText = styled.div`
+margin-top:1rem;
 
-const AboutPortrait = styled.div`  
+`
+
+const AboutParagraph = styled.div`
+margin-bottom: 1rem; 
+`
+
+const AboutPortrait = styled.img`  
+    float:right;
     position: sticky;
     margin-top: 0.5rem;
     background-image: url(${portraitUrl});
@@ -221,6 +208,17 @@ const AboutPortrait = styled.div`
     border-radius: 10px; 
     box-shadow: rgba(255, 60, 33,0.5) 0.5rem 0.5rem, rgba(255, 60, 33,0.4) 1rem 1rem, rgba(255, 60, 33,0.3) 1.5rem 1.5rem, rgba(255, 60, 33,0.2) 2rem 2rem, rgba(255, 60, 33,0.1) 2.5rem 2.5rem,
     rgba(255, 60, 33,0.5) -0.2rem -0.2rem, rgba(255, 60, 33,0.4) -0.4rem -0.4rem, rgba(255, 60, 33,0.3) -0.6rem -0.6rem, rgba(255, 60, 33,0.2) -0.8rem -0.8rem, rgba(255, 60, 33,0.1) -1.0rem -1.0rem;
+     
+        min-width: 30rem;
+        min-height:45rem;
+        max-width: 30rem;
+        margin-left:auto;
+        margin-right:auto;
+    @media only screen and (min-device-width: 1000px) {  
+        min-width: 20rem;
+        min-height:30rem;
+    } 
+
 `
 
 const AboutMainTitle = styled.div` 
@@ -231,70 +229,7 @@ color:white;
 font-size:4rem; 
 margin-bottom: 0.75rem;
 filter: drop-shadow(0.1rem 0rem 0 ${GoodOrange}) drop-shadow(0.25rem 0.25rem 0 ${GoodOrange});
-`
-const AboutSubTitle = styled.div`
-margin-top:0.5rem;
-font-size:2rem;
-margin-right:2rem;
-`
-
-const AboutProjectsDiv = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center; 
-pointer-events: none;  
-margin-top:2.6rem; 
-gap:2rem; 
-min-width: 100%;
- 
-`
-const ProjectsPreviewDiv = styled.div` 
-width: 100%;
-pointer-events: none; 
-`
-const AboutTechnologiesDiv = styled.div`   
-min-width: 96%;  
-margin:2rem 0rem 1rem 0;    
-display: flex;
-flex-direction: row;   
-flex-wrap: wrap;
-align-items: center;
-justify-content: space-evenly;    
-`
-const TechIconsOrbDiv = styled.div` 
-pointer-events: none; 
-transition: all 200ms ease-out;  
-background-color: rgba(12,12,12,0.3); 
-border-radius: 50%;
-display: flex;
-flex-direction: row;
-align-items: center;
-vertical-align: middle;
-justify-content: space-around; 
-margin-bottom: 0.5rem;  
-
-
-
- 
-&:hover{ 
-    background-color: rgba(12,12,12);
-    filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(2px 0 0 ${GoodOrange}) drop-shadow(-2px 0 0 ${GoodOrange}) drop-shadow(0 2px 0 ${GoodOrange}) drop-shadow(0 -2px 0 ${GoodOrange});; 
-} 
-`
-const TechIconsImg = styled.img`  
-pointer-events: all; 
-cursor: help; 
-filter: brightness(0) invert(1) drop-shadow(0px 0 0 ${GoodOrange})  drop-shadow(0px 0 0 ${GoodOrange});
-
-width: 3rem; 
-min-height: 3rem;  
-transition: all 200ms ease-out;
-&:hover{  
-    width: 3.25rem; 
-    filter: brightness(0) invert(1)   drop-shadow(2px 0 0 ${GoodOrange}) drop-shadow(-2px 0 0 ${GoodOrange}) drop-shadow(0 2px 0 ${GoodOrange}) drop-shadow(0 -2px 0 ${GoodOrange});
-}
-`
+`  
 
 
 export default About

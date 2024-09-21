@@ -12,20 +12,27 @@ import gitUrl from "../assets/logo-git.png"
 import canvasUrl from "../assets/logo-canvas.png"
 import CoolPopup from "./CoolPopup"
 
+import { Link } from "react-router-dom"
+
 
 
 import { useEffect, useState, useRef } from "react"
 import { projects } from "../data/dataProjects"
 
 import ProjectWithDesc from "./ProjectWithDesc"
+  
 
-
+ 
 const Projects = () =>{
 
     const [popup,setPopup] = useState([false,0,0,<></>]); 
     const [anim,setAnim] = useState(false);
 
-    const [selectProject,setSelectProject] = useState(0);
+    const mobile = window.matchMedia('(max-device-width: 1000px)').matches; 
+    const windowHeight = window.screen.height; 
+    const windowScroll = windowHeight/(Math.floor(projects.length/4));
+
+    const [selectProject,setSelectProject] = useState(1);
 
     const imgRef = useRef();
      
@@ -33,10 +40,22 @@ const Projects = () =>{
         const _pos = target.getBoundingClientRect(); 
         setPopup([true,`${Math.floor(_pos.left+_pos.width/2)}px`,`${Math.floor(_pos.bottom+15+ window.scrollY)}px`,elemento]);
     }
-
+     
     const popupOut = () =>{
         setPopup([false,0,0,<></>]);
     }
+  
+        useEffect(() => { 
+            const onScroll = (e) => {   
+                if(mobile)
+                {setSelectProject(Math.min(projects.length-1,Math.floor((window.scrollY)/windowScroll)));} 
+            };
+            if(mobile)
+            {setSelectProject(0); window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll);  }
+            
+            
+          }, []); 
+
 
     useEffect(
         ()=>{setAnim(true);
@@ -49,16 +68,26 @@ const Projects = () =>{
     return (
  
         <AboutDiv>  
-                    <AboutMainTitle>GAME DESIGN</AboutMainTitle> 
+                    <AboutMainTitle>GAME PROJECTS</AboutMainTitle> 
 
                      <AboutProjectsDiv className="mobile-wrap"> 
 
                          {
                             projects.map((project,index)=>{
-
-                                return (<ProjectsPreviewDiv>
-                                    <ProjectWithDesc project={projects[index]}/>  
-                                </ProjectsPreviewDiv>)
+                                
+                            const select = (selectProject === index); 
+                                return (
+                                    <ProjectsPreviewDiv key={"project"+String(index)} className="mobile-preview"
+                                        onMouseEnter={()=>{
+                                            setSelectProject(index);
+                                        }}
+                                    >
+                                    <Link to={"/project"+String(index)}>
+                                        <ProjectWithDesc project={projects[index]} selected={select}/>  
+                                        </Link>
+                                    </ProjectsPreviewDiv>
+                                
+                                )
                             })
                         } 
                              
@@ -87,23 +116,7 @@ const PopIconsImg = ({imgRef,src,onEnterHandler,onOutHandler,popElement}) =>{
 }
 
 //styling starts----------------------------------------
-const GoodOrange = "rgb(255,110,0)"
-
-const TechNamesButton = styled.button`
-    margin-left:3vw;
-    color:white;
-    background: black; 
-    border:none;
-    cursor:help;
-    &:hover{
-        color:${GoodOrange};
-    } 
-    &:active{
-        outline: inherit;
-        border:inherit;
-    }
-`
-
+const GoodOrange = "rgb(255,110,0)" 
 
   
 const AboutDiv = styled.div`  
@@ -244,15 +257,20 @@ display: flex;
 flex-direction: row;
 justify-content: space-between ;
 align-items: center;    
-pointer-events: none;  
+cursor: pointer;
 margin-top:3.6rem; 
-gap:2rem; 
+margin-bottom:1.6rem;
 min-width: 100%;
 flex-wrap: wrap;
+
+gap:3rem; 
+@media only screen and (min-device-width: 1000px)
+{   
+    gap:2rem;  
+}
 `
 
 const ProjectsPreviewDiv = styled.div`
-width:48%;
 pointer-events: none; 
 `
 const AboutTechnologiesDiv = styled.div`   
