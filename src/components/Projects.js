@@ -28,9 +28,21 @@ const Projects = () =>{
     const [popup,setPopup] = useState([false,0,0,<></>]); 
     const [anim,setAnim] = useState(false);
 
+    let rem = 7;
+    
+    if (window.matchMedia('(max-device-width: 1000px)').matches)
+    {
+        rem = 16;
+    }
+    else if (window.matchMedia('(max-device-width: 400px)').matches)
+    {
+        rem = 8;
+    }
+
     const mobile = window.matchMedia('(max-device-width: 1000px)').matches; 
+
     const windowHeight = window.screen.height; 
-    const windowScroll = windowHeight/(Math.floor(projects.length/4));
+    const windowScroll = (windowHeight)/(projects.length)*2;
 
     const [selectProject,setSelectProject] = useState(1);
 
@@ -48,7 +60,7 @@ const Projects = () =>{
         useEffect(() => { 
             const onScroll = (e) => {   
                 if(mobile)
-                {setSelectProject(Math.min(projects.length-1,Math.floor((window.scrollY)/windowScroll)));} 
+                {setSelectProject(Math.max(0,Math.min(projects.length-1,Math.floor((window.scrollY-70)/windowScroll))));} 
             };
             if(mobile)
             {setSelectProject(0); window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll);  }

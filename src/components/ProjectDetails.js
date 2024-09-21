@@ -160,7 +160,7 @@ const DetailsImage = styled.img`
 flex: 2;
 min-height: 20rem;  
 max-height:45vh;
-max-width:40vw;
+max-width:55%;
 object-fit: contain; 
 
 filter: drop-shadow(4px 0 0 white) 

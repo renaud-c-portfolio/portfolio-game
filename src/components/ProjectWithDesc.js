@@ -163,7 +163,7 @@ const ProjectShortDesc = styled.div`
     margin-bottom:0.5rem;
     font-weight: bold;
     font-size: 2.5rem;
-    margin-top:-1rem;
+    margin-top:-0.6rem;
     @media only screen and (min-device-width: 1000px)
     {
         margin-top:1.5rem;
