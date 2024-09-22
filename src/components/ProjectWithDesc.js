@@ -107,23 +107,23 @@ align-items: center;
 
 const ProjectTitle = styled.div`
 position: absolute;
-text-align: center;
-width: 100%; 
+text-align: center;  
 top:0px;
 font-family: superstar;
 text-align: center;   
 user-select: none;
 font-size: 4rem;
-margin-top:-2.5rem; 
-filter: drop-shadow(-0.15rem 0 0 black) drop-shadow(0 0.15rem 0 black) drop-shadow(0.15rem -0.25rem 0 black);
+margin-top:-2.5rem;  
+filter: drop-shadow(-0.15rem 0 0 black) drop-shadow(0 0.15rem 0 black) drop-shadow(0.15rem -0.25rem 0 black) 
+drop-shadow(-0.35rem 0 0 rgba(0,0,0,0.35)) drop-shadow(0 0.35rem 0 rgba(0,0,0,0.35)) drop-shadow(0.1rem 0.15rem 0 rgba(0,0,0,0.35));
 
 @media only screen and (min-device-width: 1000px)
 {
     font-size: 3rem;
-    margin-top:-2rem; 
-    filter: drop-shadow(-0.15rem 0 0 black) drop-shadow(0 0.15rem 0 black) drop-shadow(0.15rem -0.25rem 0 black);
+    margin-top:-2rem;  
 }
 
+ 
 `
 
 const ProjectSpecial = styled.div`
@@ -135,8 +135,8 @@ left:1rem;
 font-family: superstar;
 text-align: center;   
 user-select: none;
-font-size: 2.8rem; 
-    filter: drop-shadow(-0.15rem 0 0 white) drop-shadow(0 0.15rem 0 white) drop-shadow(0.15rem -0.25rem 0 white); 
+font-size: 2.8rem;  
+    filter: drop-shadow(-0.15rem 0 0 white) drop-shadow(0 0.15rem 0 white) drop-shadow(0.15rem -0.25rem 0 white) drop-shadow(-0.15rem 0 0 black) drop-shadow(0 0.15rem 0 black) drop-shadow(0.15rem -0.25rem 0 black); 
 
 `
 

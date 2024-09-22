@@ -34,7 +34,7 @@ const ProjectDetails = ({project}) =>{
                             project.details.map((detail,index)=>{
                                 const innerHtml = {__html: detail}
 
-                                if (index % 2 == 0)
+                                if (index % 2 == 0 || mobile)
                                 {
                                     return (
 
@@ -140,7 +140,7 @@ display: flex;
 align-items: center; 
 margin-bottom:5rem;
 gap:2rem;
-flex-direction: row;
+flex-direction: column;
 @media only screen and (min-device-width: 1000px)
     {
         flex-direction: row;
@@ -149,21 +149,20 @@ flex-direction: row;
 
 const DetailsParagraph = styled.div`
 flex: 2;
-& a{
-    text-decoration: underline;
-    color:${GoodOrange};
-    &:hover{
-        color:yellow;
+    & a{
+        text-decoration: underline;
+        color:${GoodOrange};
+        &:hover{
+            color:yellow;
+        }
     }
-}
-& ul{
-    margin-left:2rem;
-} 
-
-
+    & ul{
+        margin-left:2rem;
+    }  
+margin-bottom:2rem;
 font-size:2rem;
 @media only screen and (min-device-width: 1000px)
-    {
+    { 
         font-size:1.6rem;
     }
 `
@@ -171,9 +170,12 @@ font-size:2rem;
 const DetailsVideo = styled.video` 
 min-height: 20rem;  
 max-height:45vh;
-max-width:40vw;
-object-fit: contain; 
-
+object-fit: contain;  
+max-width:80%;
+@media only screen and (min-device-width: 1000px)
+    {
+        max-width:55%;
+    }
 filter: drop-shadow(4px 0 0 white) 
         drop-shadow(0 4px 0 white)
         drop-shadow(-4px 0 0 white)
@@ -184,10 +186,8 @@ const DetailsImage = styled.img`
 flex: 2;
 min-height: 20rem;  
 max-height:45vh;
-object-fit: contain; 
-
-
-max-width:50%;
+object-fit: contain;   
+max-width:80%;
 @media only screen and (min-device-width: 1000px)
     {
         max-width:55%;
