@@ -21,7 +21,7 @@ import ProjectWithDesc from "./ProjectWithDesc"
 const About = () => {
 
     const [popup,setPopup] = useState([false,0,0,<></>]); 
-    const [anim,setAnim] = useState(false);
+        const [anim,setAnim] = useState(false);
 
     const imgRef = useRef();
      
@@ -53,7 +53,7 @@ const About = () => {
                                     Renaud is a game designer with years of experience making games.
                                  </AboutParagraph>
                                  <AboutParagraph>
-                                Battling the concept of randomness, especially "random results", he avoids dice rolls and % critical hits. Yet despite it all he can't help but go back to fun group boardgames, or looting rare treasure chests for ultra greatswords.
+                                Battling the concept of randomness, especially "random results", he likes to avoid avoids dice rolls and % critical hits. Yet despite it all he can't help but go back to fun group boardgames, or looting rare treasure chests for ultra greatswords.
                                 </AboutParagraph>
                                 <AboutParagraph>
                                 He likes to play old fighting games with robots in them. Those usually aren't random.
@@ -184,7 +184,7 @@ display: flex;
 gap:2rem;
 flex-direction: column;
 
-@media only screen and (min-device-width: 1000px) { 
+@media (width > 1000px) { 
     flex-direction: row;
 }
 
@@ -215,7 +215,7 @@ const AboutPortrait = styled.img`
         max-width: 30rem;
         margin-left:auto;
         margin-right:auto;
-    @media only screen and (min-device-width: 1000px) {  
+    @media (width > 1000px) {  
         min-width: 20rem;
         min-height:30rem;
     } 

@@ -117,7 +117,7 @@ margin-top:-2.5rem;
 filter: drop-shadow(-0.15rem 0 0 black) drop-shadow(0 0.15rem 0 black) drop-shadow(0.15rem -0.25rem 0 black) 
 drop-shadow(-0.35rem 0 0 rgba(0,0,0,0.35)) drop-shadow(0 0.35rem 0 rgba(0,0,0,0.35)) drop-shadow(0.1rem 0.15rem 0 rgba(0,0,0,0.35));
 
-@media only screen and (min-device-width: 1000px)
+@media (width > 1200px)
 {
     font-size: 3rem;
     margin-top:-2rem;  
@@ -163,7 +163,7 @@ const ProjectShortDesc = styled.div`
     font-weight: bold;
     font-size: 2.4rem;
     margin-top:-0.6rem;
-    @media only screen and (min-device-width: 1000px)
+    @media (width > 1200px)
     {
         margin-top:1.5rem;
         font-size: 1.9rem;
@@ -173,7 +173,7 @@ const ProjectFeatures = styled.div`
     text-align: left;    
     font-size:1.7rem;
     margin-right:0.75rem;
-    @media only screen and (min-device-width: 1000px)
+    @media (width > 1200px)
     {
         font-size:1.3rem;
     }
@@ -198,8 +198,10 @@ border-top-left-radius: 6%;
 border-end-start-radius: 6%;
 box-shadow: rgba(0, 0, 0,0.25) 5px 0px, rgba(0, 0, 0,0.20) 10px 0px, rgba(0, 0, 0,0.15) 15px 0px, rgba(0, 0, 0,0.10) 20px 0px, rgba(0, 0, 0,0.05) 25px 0px;
 
-max-height: 22rem;
-@media only screen and (min-device-width: 1000px)
+min-width:50%;
+
+min-height:22rem;
+@media (width > 1200px)
 { 
     max-height: 18rem;
 }
@@ -208,16 +210,15 @@ max-height: 22rem;
 
 const LoaderVideo = styled.video`   
 border-top-left-radius: 6%;
-border-end-start-radius: 6%;  
-object-fit: cover;    
-max-width: 100%; 
+border-end-start-radius: 6%;   
+object-fit:cover;
 
 &.hidden{
     opacity: 0;
 }
-
-height:22rem;
-@media only screen and (min-device-width: 1000px)
+min-width:50%; 
+max-width:100%;
+@media (width > 1200px)
 { 
     max-height: 18rem;
 }

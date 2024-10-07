@@ -30,7 +30,7 @@ const Projects = () =>{
 
     let rem = 6;
     
-    if (window.matchMedia('(max-device-width: 1000px)').matches)
+    if (window.matchMedia('(max-device-width: 1200px)').matches)
     {
         rem = 16;
     }
@@ -44,7 +44,7 @@ const Projects = () =>{
         rem = 8;
     }
 
-    const mobile = window.matchMedia('(max-device-width: 1000px)').matches; 
+    const mobile = window.matchMedia('(max-device-width: 1200px)').matches; 
 
     const windowHeight = window.screen.height; 
     const windowScroll = (windowHeight)/(projects.length)*2;
@@ -263,7 +263,7 @@ font-size:4rem;
 margin-bottom: 0.75rem;
 
 margin-top: 3rem;
-@media only screen and (min-device-width: 1000px)
+@media (width > 1200px)
 {
     margin-top:0px;
 }
@@ -284,18 +284,33 @@ align-items: center;
 cursor: pointer;
 margin-top:3.6rem; 
 margin-bottom:1.6rem;
-min-width: 100%;
-flex-wrap: wrap;
+min-width: 100%; 
 
+flex-wrap: wrap;
+justify-content:flex-start; 
+align-items: flex-start;
+max-width: 70%;
 gap:3rem; 
-@media only screen and (min-device-width: 1000px)
-{   
+
+@media (width > 1200px)
+{
+    justify-content:center;
+    align-items:center;
+    max-width: 100%;
     gap:2rem;  
 }
+    
 `
 
 const ProjectsPreviewDiv = styled.div`
-pointer-events: none; 
+pointer-events: none;
+width:96%; 
+
+ @media (width > 1200px)
+ {
+    min-width:48%; 
+    max-width:48%; 
+ }
 `
 const AboutTechnologiesDiv = styled.div`   
 min-width: 96%;  

@@ -156,7 +156,7 @@ height:fit-content;
 z-index:1;
 
 background:#191919;
-@media only screen and (min-device-width: 1000px) { 
+@media (width > 1200px) { 
 
   background-image: repeating-linear-gradient(135deg, 
       #131313, 
@@ -217,6 +217,20 @@ display: flex;
 flex-direction:row;
 justify-content: space-between;  
 min-height: 50px;    
+
+flex-wrap: wrap;
+justify-content:flex-start; 
+align-items: flex-start;
+max-width: 70%;
+gap:5px;
+
+ @media (width > 1200px)
+ {
+    flex-wrap: nowrap;
+    justify-content:center;
+    align-items:center;
+    max-width: 100%;
+ }
 `
 
 const MainFrame = styled.div`       
@@ -328,19 +342,18 @@ align-items: center;
 justify-content: space-between;   
 position:relative;
 
-padding-left:10px;
-padding-right:10px;
+padding-left:20px;
+padding-right:20px;
 margin-top:-0.5rem;  
-@media only screen and (min-device-width: 1000px) {
+
+@media (width > 1200px) {
   min-width:1200px;
-  padding-left:60px;
-  padding-right:60px;
 }
 
 &.backgrounded {
   background: #131313; 
   
-  @media only screen and (min-device-width: 1000px) {
+  @media (width > 1200px) {
      filter: drop-shadow(16px 0 0 rgba(0,0,0,0.5)) 
         drop-shadow(-16px 0 0 rgba(0,0,0,0.5))
         drop-shadow(32px 0 0 rgba(0,0,0,0.5)) 

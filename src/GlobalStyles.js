@@ -48,74 +48,26 @@ html {
   min-height: 100%; 
   scrollbar-color: ${GoodOrange} black;  
   width:100vw;
-  font-size:5px; 
+
+  font-size:8px;
+  @media (width > 320px)
+  {
+    font-size:8px;
+  } 
+  @media (width > 400px)
+  {
+   font-size:8px;
+  }
+  @media (width > 800px)
+  {
+   font-size:16px;
+  }
+  @media (width > 1200px)
+  {
+   font-size: 16px;
+  }
 } 
    
-.mobile-preview{
-  width:96%; 
-} 
-.mobile-wrap{
-  flex-wrap: wrap;
-  justify-content:flex-start; 
-  align-items: flex-start;
-  max-width: 70%;
-  gap:5px;
-}
-.tech-icons{
-  width: 4rem;  
-  transition: all 200ms ease-out;
-  &:hover{  
-      width: 4.5rem; 
-      filter: brightness(0) invert(1)   drop-shadow(2px 0 0 ${GoodOrange}) drop-shadow(-2px 0 0 ${GoodOrange}) drop-shadow(0 2px 0 ${GoodOrange}) drop-shadow(0 -2px 0 ${GoodOrange});
-  }
-
-}
-.tech-orbs{ 
-  width: 5rem;  
-  height:5rem; 
-  padding:1rem;
-}  
-@media only screen and (min-device-width: 320px) {
-  html {
-    font-size:7px; 
-  } 
-}
-@media only screen and (min-device-width: 400px) {
-  html {
-    font-size:8px; 
-  } 
-}
-@media only screen and (min-device-width: 1000px) {
-  html { 
-    font-size:16px; 
-  }
-  .mobile-preview{
-    width:48%;
-  } 
-  .mobile-wrap{ 
-    flex-wrap: nowrap;
-    justify-content:center;
-    align-items:center;
-    max-width: 100%;
-  }
-  .mobile-content{
-    min-width:1200px;
-  }
-  .tech-icons{
-    width: 3rem; 
-    min-height: 3rem;  
-    transition: all 200ms ease-out;
-    &:hover{  
-        width: 3.25rem; 
-        filter: brightness(0) invert(1)   drop-shadow(2px 0 0 ${GoodOrange}) drop-shadow(-2px 0 0 ${GoodOrange}) drop-shadow(0 2px 0 ${GoodOrange}) drop-shadow(0 -2px 0 ${GoodOrange});
-    }
-  }
-  .tech-orbs{ 
-    width: 4rem;  
-    height:4rem; 
-    padding:1rem;
-  }
-} 
 
  
 
@@ -166,10 +118,7 @@ html {
     margin: 0;
     overflow-x: hidden;
   
-    max-height: 100%;
-
-
-
+    max-height: 100%; 
      
       
   } 
