@@ -87,7 +87,7 @@ const Projects = () =>{
         <AboutDiv>  
                     <AboutMainTitle>GAME PROJECTS</AboutMainTitle> 
 
-                     <AboutProjectsDiv className="mobile-wrap"> 
+                     <AboutProjectsDiv > 
 
                          {
                             projects.map((project,index)=>{
@@ -140,8 +140,9 @@ const AboutDiv = styled.div`
 width: 100%;  
 max-width: 1400px; 
 margin-top:2rem;  
-color:white; 
+color:white;  
 `
+
 const AbsoluteRelative = styled.div`
 position: sticky;
 max-width:1px;
@@ -255,20 +256,25 @@ const AboutPortrait = styled.div`
 `
 
 const AboutMainTitle = styled.div` 
-width: 100%;
+width: 99%;
 font-family:  zero4B, 'Courier New', Courier, monospace; 
 border-bottom:0.4rem solid white ;
 color:white;
-font-size:4rem; 
 margin-bottom: 0.75rem;
 
-margin-top: 3rem;
-@media (width > 1200px)
-{
-    margin-top:0px;
-}
 
 filter: drop-shadow(0.1rem 0rem 0 ${GoodOrange}) drop-shadow(0.25rem 0.25rem 0 ${GoodOrange});
+
+font-size:2.4rem; 
+
+@media (width > 640px)
+{
+    font-size:3rem; 
+}
+@media (width > 1200px)
+{
+    font-size:4rem; 
+}
 `
 const AboutSubTitle = styled.div`
 margin-top:0.5rem;
@@ -276,26 +282,23 @@ font-size:2rem;
 margin-right:2rem;
 `
 
-const AboutProjectsDiv = styled.div`
+const AboutProjectsDiv = styled.div` 
 display: flex;
-flex-direction: row;
-justify-content: space-between ;
-align-items: center;    
-cursor: pointer;
+flex-direction: row; 
+align-items: center;     
+cursor: pointer; 
 margin-top:3.6rem; 
 margin-bottom:1.6rem;
 min-width: 100%; 
 
 flex-wrap: wrap;
-justify-content:flex-start; 
-align-items: flex-start;
 max-width: 70%;
 gap:3rem; 
 
+justify-content: center;
+
 @media (width > 1200px)
-{
-    justify-content:center;
-    align-items:center;
+{ 
     max-width: 100%;
     gap:2rem;  
 }
@@ -304,14 +307,15 @@ gap:3rem;
 
 const ProjectsPreviewDiv = styled.div`
 pointer-events: none;
-width:96%; 
+width:90%; 
 
- @media (width > 1200px)
+ @media (width > 640px)
  {
-    min-width:48%; 
-    max-width:48%; 
+    min-width:580px; 
+    max-width:580px; 
  }
 `
+
 const AboutTechnologiesDiv = styled.div`   
 min-width: 96%;  
 margin:2rem 0rem 1rem 0;    
@@ -331,7 +335,7 @@ flex-direction: row;
 align-items: center;
 vertical-align: middle;
 justify-content: space-around; 
-margin-bottom: 0.5rem;  
+margin-bottom: 0.5rem;
 
 
 

@@ -23,13 +23,7 @@ const ProjectWithDesc = ({project,selected}) =>{
                 {project.name}   
                 </ProjectTitle>
 
-                {project.special != "" ?
-                    
-                    <ProjectSpecial>
-                         {project.special}
-                    </ProjectSpecial> 
-                    
-                    :<></>}
+                
                 <ProjectDiv >
                         <LoaderDiv style={{backgroundImage:"url("+pngUrl+")"}} > 
 
@@ -42,6 +36,15 @@ const ProjectWithDesc = ({project,selected}) =>{
                                     <source src={vidUrl} type="video/mp4" />
                                 </LoaderVideo>
                             } 
+
+
+                            {project.special != "" ?
+                                                
+                                                <ProjectSpecial>
+                                                    {project.special}
+                                                </ProjectSpecial> 
+                                                
+                                                :<></>}
                         </LoaderDiv>
                          
                     <ProjectDesc > 
@@ -91,6 +94,11 @@ const BigProjectDiv = styled.div`
         scale: 1.10;
         filter: drop-shadow(-0.25rem 0 0 ${GoodOrange}) drop-shadow(0 0.25rem 0 ${GoodOrange}) drop-shadow(0.25rem -0.25rem 0 ${GoodOrange});
     }
+    margin-top:1rem;
+    @media (width > 640px)
+    {
+        margin-top:0;
+    }
     
 `
 
@@ -103,6 +111,12 @@ font-size: 2.5rem;
 display: flex;   
 justify-content: space-between;
 align-items: center;
+ flex-direction: column ;
+
+ @media (width > 640px)
+ {
+    flex-direction: row;
+ }
 ` 
 
 const ProjectTitle = styled.div`
@@ -112,14 +126,18 @@ top:0px;
 font-family: superstar;
 text-align: center;   
 user-select: none;
-font-size: 4rem;
-margin-top:-2.5rem;  
 filter: drop-shadow(-0.15rem 0 0 black) drop-shadow(0 0.15rem 0 black) drop-shadow(0.15rem -0.25rem 0 black) 
 drop-shadow(-0.35rem 0 0 rgba(0,0,0,0.35)) drop-shadow(0 0.35rem 0 rgba(0,0,0,0.35)) drop-shadow(0.1rem 0.15rem 0 rgba(0,0,0,0.35));
 
-@media (width > 1200px)
+font-size:2.1rem;
+margin-top:-1.5rem;  
+@media (width > 480px)
 {
     font-size: 3rem;
+}
+@media (width > 1200px)
+{ 
+    padding-top:0;
     margin-top:-2rem;  
 }
 
@@ -130,7 +148,6 @@ const ProjectSpecial = styled.div`
 position: absolute;
 color:${GoodOrange};
 text-align: left;  
-bottom:0px;
 left:1rem;
 font-family: superstar;
 text-align: center;   
@@ -163,15 +180,18 @@ const ProjectShortDesc = styled.div`
     font-weight: bold;
     font-size: 2.4rem;
     margin-top:-0.6rem;
+    padding-top:1rem;
     @media (width > 1200px)
     {
+        padding-top:1rem;
         margin-top:1.5rem;
         font-size: 1.9rem;
     }
 `
+//1.7rem;
 const ProjectFeatures = styled.div` 
     text-align: left;    
-    font-size:1.7rem;
+    font-size: 20px;
     margin-right:0.75rem;
     @media (width > 1200px)
     {
@@ -189,7 +209,7 @@ const ProjectFeatures = styled.div`
  
 
 
-const LoaderDiv = styled.div`    
+const LoaderDiv = styled.div`     
 margin:0;
 border:0;
 padding:0;   
@@ -197,13 +217,11 @@ background-size: cover;
 border-top-left-radius: 6%;
 border-end-start-radius: 6%;
 box-shadow: rgba(0, 0, 0,0.25) 5px 0px, rgba(0, 0, 0,0.20) 10px 0px, rgba(0, 0, 0,0.15) 15px 0px, rgba(0, 0, 0,0.10) 20px 0px, rgba(0, 0, 0,0.05) 25px 0px;
-
-min-width:50%;
-
-min-height:22rem;
+ 
+max-width: 100%;
 @media (width > 1200px)
 { 
-    max-height: 18rem;
+    max-width: 300px;
 }
 ` 
 
@@ -215,12 +233,11 @@ object-fit:cover;
 
 &.hidden{
     opacity: 0;
-}
-min-width:50%; 
-max-width:100%;
+} 
+max-width: 100%;
 @media (width > 1200px)
 { 
-    max-height: 18rem;
+    max-width:300px;
 }
 ` 
 

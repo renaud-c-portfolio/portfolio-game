@@ -49,14 +49,14 @@ html {
   scrollbar-color: ${GoodOrange} black;  
   width:100vw;
 
-  font-size:8px;
+  font-size:12px;
   @media (width > 320px)
   {
-    font-size:8px;
+    font-size:16px;
   } 
-  @media (width > 400px)
+  @media (width > 640px)
   {
-   font-size:8px;
+   font-size:16px;
   }
   @media (width > 800px)
   {
