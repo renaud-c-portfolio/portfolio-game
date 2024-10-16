@@ -1,45 +1,21 @@
 import styled from "styled-components"
 import arrowUrl from "../assets/arrow.png"
-import portraitUrl from "../assets/portrait.png"
-import reactUrl from "../assets/logo-react.png"
-import typeScrUrl from "../assets/logo-typescript.png"
-import javaScrUrl from "../assets/logo-javascript.png"
-import nodeUrl from "../assets/logo-node.png"
-import htmlUrl from "../assets/logo-html5.png"
-import mongoUrl from "../assets/logo-mongo.png"
-import gitUrl from "../assets/logo-git.png"
-import canvasUrl from "../assets/logo-canvas.png"
+import portraitUrl from "../assets/portrait.png" 
 import CoolPopup from "./CoolPopup"
+import emailUrl from "../assets/icon-at.png";
 
 
 
-import { useEffect, useState, useRef } from "react"
-import { projects } from "../data/dataProjects"
-
-import ProjectWithDesc from "./ProjectWithDesc"
+import { useEffect, useState, useRef } from "react" 
 
 const About = () => {
 
-    const [popup,setPopup] = useState([false,0,0,<></>]); 
-        const [anim,setAnim] = useState(false);
-
-    const imgRef = useRef();
-     
-    const popupHandler = (elemento,target) =>{   
-        const _pos = target.getBoundingClientRect(); 
-        setPopup([true,`${Math.floor(_pos.left+_pos.width/2)}px`,`${Math.floor(_pos.bottom+15+ window.scrollY)}px`,elemento]);
-    }
-
-    const popupOut = () =>{
-        setPopup([false,0,0,<></>]);
-    }
+    const [popup,setPopup] = useState([false,0,0,<></>]);  
 
     useEffect(
-        ()=>{setAnim(true);
-        setTimeout(()=>{
-            setAnim(false);
-        },2000)
-        }
+        ()=>{ 
+            window.scrollTo(0,0);
+         }
         ,[])
 
     return (
@@ -49,8 +25,13 @@ const About = () => {
                         <AboutMainTitle>ABOUT</AboutMainTitle> 
                         <AboutFlexDiv>
                             <AboutText>
+                            <AboutParagraph> 
+                            <EmailLink href={"mailto:renaud.c.portfolio@gmail.com"} target=" _blank" rel="noreferrer noopener" > <EmailIcon src={emailUrl}  /> &nbsp; &nbsp; E-Mail</EmailLink> 
+                            
+                                    
+                                 </AboutParagraph>
                                 <AboutParagraph> 
-                                    Renaud is a game designer with years of experience making games.
+                                    Renaud is a game designer with over a decade of experience making games.
                                  </AboutParagraph>
                                  <AboutParagraph>
                                 Battling the concept of randomness, especially "random results", he likes to avoid avoids dice rolls and % critical hits. Yet despite it all he can't help but go back to fun group boardgames, or looting rare treasure chests for ultra greatswords.
@@ -184,7 +165,7 @@ display: flex;
 gap:2rem;
 flex-direction: column;
 
-@media (width > 1000px) { 
+@media (width > 639px) { 
     flex-direction: row;
 }
 
@@ -210,27 +191,64 @@ const AboutPortrait = styled.img`
     box-shadow: rgba(255, 60, 33,0.5) 0.5rem 0.5rem, rgba(255, 60, 33,0.4) 1rem 1rem, rgba(255, 60, 33,0.3) 1.5rem 1.5rem, rgba(255, 60, 33,0.2) 2rem 2rem, rgba(255, 60, 33,0.1) 2.5rem 2.5rem,
     rgba(255, 60, 33,0.5) -0.2rem -0.2rem, rgba(255, 60, 33,0.4) -0.4rem -0.4rem, rgba(255, 60, 33,0.3) -0.6rem -0.6rem, rgba(255, 60, 33,0.2) -0.8rem -0.8rem, rgba(255, 60, 33,0.1) -1.0rem -1.0rem;
      
-        min-width: 30rem;
-        min-height:45rem;
-        max-width: 30rem;
+        height:120vw;
+        min-width:80vw;
+        max-width: 80vw;
         margin-left:auto;
         margin-right:auto;
-    @media (width > 1000px) {  
+    @media (width > 639px) {  
+        min-width: 14rem;
+        min-height:21rem;
+        max-height: 21rem;
+        margin-right:20px;
+    } 
+    @media (width > 1200px) {  
         min-width: 20rem;
-        min-height:30rem;
+        min-height: 30rem;
+        max-height: 30rem;
+        margin-right:20px;
     } 
 
 `
 
 const AboutMainTitle = styled.div` 
-width: 100%;
+width: 99%;
 font-family:  zero4B, 'Courier New', Courier, monospace; 
 border-bottom:0.4rem solid white ;
 color:white;
-font-size:4rem; 
 margin-bottom: 0.75rem;
+
+
 filter: drop-shadow(0.1rem 0rem 0 ${GoodOrange}) drop-shadow(0.25rem 0.25rem 0 ${GoodOrange});
+
+font-size:2.4rem; 
+
+@media (width > 640px)
+{
+    font-size:3rem; 
+}
+@media (width > 1200px)
+{
+    font-size:4rem; 
+}
 `  
+
+const EmailLink = styled.a`
+color:yellow;
+text-decoration: underline;
+&:hover{
+    color:${GoodOrange}
+}
+`
+
+const EmailIcon = styled.img`
+position: absolute;
+height:1.2rem;
+width: 1.2rem;
+filter: brightness(0) invert(1);
+margin-top:0.3rem;
+margin-left: 0.1rem;
+`
 
 
 export default About

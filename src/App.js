@@ -201,16 +201,7 @@ height: 100px;
  
 
 `
-
-const Deco = styled.div` 
-pointer-events: none;
-position: fixed;
-height: calc(13vh + 5px); 
-width:35vw;
-top:0px; 
-box-shadow: rgba(255, 60, 33,0.5) 5px 0, rgba(255, 60, 33,0.4) 10px 0, rgba(255, 60, 33,0.3) 15px 0, rgba(255, 60, 33,0.2) 20px 0, rgba(255, 60, 33,0.1) 25px 0;
-` 
-
+ 
 const MobileWrapCheckDiv = styled.div`   
 display: flex;
 flex-direction:row;  
@@ -219,7 +210,7 @@ justify-content:flex-start;
 align-items:center; 
 flex-wrap:wrap;
 min-width:18rem;
-@media (width > 640px)
+@media (width > 639px)
 {
 min-width:30rem;
 max-width:30rem; 
@@ -252,7 +243,7 @@ height:100%;
 }
  
   
-font-size: 2.7rem;
+font-size: 2.9rem;
 
 @media (width > 640px)
 {
@@ -269,7 +260,7 @@ const FlexFrameDiv = styled.div`
 display: flex; 
 justify-content: space-between;  
 gap:2rem;
-height:2.6rem;
+height:2.6rem; 
  
 `
 
@@ -288,7 +279,7 @@ justify-content: center;
 align-items: flex-end;
 transition: all 200ms ease-out;
   -webkit-text-stroke: 0px rgb(255,110,0);
-  font-size:1.2rem;
+  font-size:1.3rem;
 &:hover{
   -webkit-text-stroke: 0.15rem yellow;
   text-decoration-color: yellow;
@@ -324,9 +315,9 @@ const IconsFrameDiv = styled.div`
 display:flex; 
 flex-direction: column;     
 justify-content: space-around;  
-align-items:center;   
-visibility:hidden;
+align-items:center;    
 max-width:0px;
+visibility:hidden;
 @media (width > 400px)
 {
   max-width:initial;
@@ -356,21 +347,17 @@ transition: all 200ms ease-out;
 &:hover{ 
     filter: brightness(0) invert(0.5)  drop-shadow(2px 0 0 yellow) drop-shadow(-2px 0 0 yellow) drop-shadow(0 2px 0 yellow) drop-shadow(0 -2px 0 yellow);
 }
- height:50px;
+height:0px;
+ @media (width > 400px)
+{
+  height:50px;
+}
 @media (width > 640px)
 {
   height: 70px; 
 }
 `
-
-const Flex1Div = styled.div`
-flex:1;
-`
-
-const ContentDiv = styled.div`  
-display: flex;
-flex-direction: row;
-`
+ 
 const CenteringDiv = styled.div`   
 margin-left: auto;
 margin-right: auto; 

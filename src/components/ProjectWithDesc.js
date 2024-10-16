@@ -41,13 +41,12 @@ const ProjectWithDesc = ({project,selected}) =>{
                             {project.special != "" ?
                                                 
                                                 <ProjectSpecial>
-                                                    {project.special}
                                                 </ProjectSpecial> 
                                                 
                                                 :<></>}
                         </LoaderDiv>
                          
-                    <ProjectDesc > 
+                    <ProjectDesc className={selected? "mouse-over":""} > 
                         <ProjectPadding>
                             <ProjectShortDesc>
                                 {project.desc} 
@@ -89,6 +88,10 @@ const BigProjectDiv = styled.div`
         scale: 1.08;
         z-index: 99;
          background-color: #444444; 
+        @media (width < 1200px)
+        {
+            filter: drop-shadow(-0.25rem 0 0 ${GoodOrange}) drop-shadow(0 0.25rem 0 ${GoodOrange}) drop-shadow(0.25rem -0.25rem 0 ${GoodOrange});
+        }
     } 
     &:hover{
         scale: 1.10;
@@ -129,16 +132,16 @@ user-select: none;
 filter: drop-shadow(-0.15rem 0 0 black) drop-shadow(0 0.15rem 0 black) drop-shadow(0.15rem -0.25rem 0 black) 
 drop-shadow(-0.35rem 0 0 rgba(0,0,0,0.35)) drop-shadow(0 0.35rem 0 rgba(0,0,0,0.35)) drop-shadow(0.1rem 0.15rem 0 rgba(0,0,0,0.35));
 
-font-size:2.1rem;
-margin-top:-1.5rem;  
-@media (width > 480px)
+font-size:1.5rem;
+margin-top:-1.2rem;  
+@media (width > 639px)
 {
     font-size: 3rem;
+    margin-top:-2rem;  
 }
 @media (width > 1200px)
 { 
     padding-top:0;
-    margin-top:-2rem;  
 }
 
  
@@ -157,19 +160,37 @@ font-size: 2.8rem;
 
 `
 
-const ProjectPadding = styled.div` 
-margin:0rem 0rem 1.5rem 2rem;
-border-radius: 5%;
+const ProjectPadding = styled.div`  
  
 `
 
 const ProjectDesc = styled.div` 
 font-family: 'roboto'; 
-height: 17.5rem;
 min-width: calc((50%) - (0.5rem) - (2px)); 
-padding:0.25rem;  
 border-radius: 20px;
-max-width: calc((50%) - (0.5rem));  
+
+padding:0;  
+height:0px;
+visibility: hidden;
+transition: all 200ms ease-in;
+opacity: 0;
+&.mouse-over {
+    visibility: visible;
+    height:166px;
+    opacity: 1;
+}
+@media (width > 639px)
+{ 
+    opacity: 1;
+    visibility: visible;
+    max-width: calc((50%) - (0.5rem));  
+    padding:0.25rem;  
+    height: 17.5rem;
+        &.mouse-over {
+        visibility: visible;
+        height: 17.5rem;
+    }
+}
 `
 
 const ProjectShortDesc = styled.div`
@@ -177,23 +198,27 @@ const ProjectShortDesc = styled.div`
     color:${GoodOrange};
     font-family: 'roboto-bold';  
     margin-bottom:0.5rem;
-    font-weight: bold;
-    font-size: 2.4rem;
+    font-weight: bold; 
     margin-top:-0.6rem;
     padding-top:1rem;
-    @media (width > 1200px)
+
+    font-size:1.2rem;
+    @media (width > 640px)
     {
-        padding-top:1rem;
-        margin-top:1.5rem;
         font-size: 1.9rem;
-    }
+        margin-top:1.5rem;
+        padding-top:1rem;
+
+    } 
 `
 //1.7rem;
-const ProjectFeatures = styled.div` 
-    text-align: left;    
-    font-size: 20px;
+const ProjectFeatures = styled.div`  
+    text-align: left;     
     margin-right:0.75rem;
-    @media (width > 1200px)
+    font-size:1rem;
+    width:calc(100%-1rem);
+    padding-left:1rem; 
+    @media (width > 640px)
     {
         font-size:1.3rem;
     }
@@ -215,29 +240,44 @@ border:0;
 padding:0;   
 background-size: cover;
 border-top-left-radius: 6%;
-border-end-start-radius: 6%;
-box-shadow: rgba(0, 0, 0,0.25) 5px 0px, rgba(0, 0, 0,0.20) 10px 0px, rgba(0, 0, 0,0.15) 15px 0px, rgba(0, 0, 0,0.10) 20px 0px, rgba(0, 0, 0,0.05) 25px 0px;
+border-top-right-radius: 6%;
  
-max-width: 100%;
-@media (width > 1200px)
-{ 
+max-width: 220px;
+height:220px;
+max-height: 220px;
+box-shadow: rgba(0, 0, 0,0.25) 0px 5px, rgba(0, 0, 0,0.20) 0px 10px, rgba(0, 0, 0,0.15) 0px 15px, rgba(0, 0, 0,0.10) 0px 20px, rgba(0, 0, 0,0.05) 0px 25px;
+
+@media (width > 640px)
+{  
+border-end-start-radius: 6%;
+border-top-right-radius: 0;
+    box-shadow: rgba(0, 0, 0,0.25) 5px 0px, rgba(0, 0, 0,0.20) 10px 0px, rgba(0, 0, 0,0.15) 15px 0px, rgba(0, 0, 0,0.10) 20px 0px, rgba(0, 0, 0,0.05) 25px 0px;
+    width:300px;
     max-width: 300px;
+    height:300px;
+    max-height: 300px;
 }
 ` 
 
 
 const LoaderVideo = styled.video`   
 border-top-left-radius: 6%;
-border-end-start-radius: 6%;   
+border-top-right-radius: 6%;
 object-fit:cover;
 
 &.hidden{
     opacity: 0;
 } 
 max-width: 100%;
-@media (width > 1200px)
+height:220px;
+@media (width > 639px)
 { 
+    border-end-start-radius: 6%;   
+    border-top-right-radius: 0;
+    width:300px;
     max-width:300px;
+    height:300px;
+    max-height:300px;
 }
 ` 
 

@@ -16,8 +16,7 @@ const ProjectDetails = ({project}) =>{
         
     } 
     console.log(detailUrls);
-
-    const mobile = window.matchMedia('(max-device-width: 1000px)').matches; 
+ 
 
     return (  
 
@@ -33,43 +32,21 @@ const ProjectDetails = ({project}) =>{
                 {
                             project.details.map((detail,index)=>{
                                 const innerHtml = {__html: detail}
-
-                                if (index % 2 == 0 || mobile)
-                                {
+ 
                                     return (
 
                                         <DetailFlexDiv>
-                                           <DetailsParagraph dangerouslySetInnerHTML={innerHtml}></DetailsParagraph>
-
+                                           <DetailsParagraph dangerouslySetInnerHTML={innerHtml}></DetailsParagraph> 
                                            {detailUrls[index].indexOf(".mp4") != -1 ? 
                                             <DetailsVideo preload="metadata" autoPlay muted loop controls>
                                                 <source src={detailUrls[index]} type="video/mp4" />
                                             </DetailsVideo>: 
                                             <DetailsImage
                                            src={detailUrls[index]}
-                                           ></DetailsImage>}
-
+                                           ></DetailsImage>} 
                                         </DetailFlexDiv>
                                    
-                                   )
-                                }
-                                else { 
-                                    return (
-
-                                        <DetailFlexDiv>
-                                            {detailUrls[index].indexOf(".mp4") != -1 ? 
-                                            <DetailsVideo preload="metadata" autoPlay muted loop controls>
-                                                <source src={detailUrls[index]} type="video/mp4" />
-                                            </DetailsVideo>: 
-                                            <DetailsImage
-                                           src={detailUrls[index]}
-                                           ></DetailsImage>}
-                                           
-                                           <DetailsParagraph dangerouslySetInnerHTML={innerHtml}></DetailsParagraph>
-                                        </DetailFlexDiv>
-                                   
-                                   )
-                                }
+                                   ) 
                                 
                             })
                         } 
@@ -95,7 +72,6 @@ const BackButton = styled.button`
 font-family: zero4b;
 position: absolute;
 color:black;
-font-size:3rem;
 max-width: 12rem;  
 z-index: 99;
 background:white;
@@ -111,9 +87,17 @@ border:none;
 z-index: 99;
 pointer-events: all;
 cursor: pointer;
+
+font-size:1rem;
 margin-top:-1rem;
-@media only screen and (min-device-width: 1000px)
+@media (width > 640px)
     {
+        font-size:2.5rem;
+        margin-top:-1.2rem;
+    }
+@media (width > 1200px)
+    {
+        font-size:3rem;
         margin-top:-0.5rem;
     }
 
@@ -125,12 +109,18 @@ width: 100%;
 font-family:  zero4B, 'Courier New', Courier, monospace; 
 border-bottom:0.4rem solid white ;
 color:white;
-margin-bottom: 3.5rem;
 filter: drop-shadow(0.1rem 0rem 0 ${GoodOrange}) drop-shadow(0.25rem 0.25rem 0 ${GoodOrange});
 
-font-size:3.5rem; 
-@media only screen and (min-device-width: 1000px)
+font-size:1.6rem; 
+margin-bottom: 1rem;
+@media (width > 640px)
     {
+        margin-bottom: 1.5rem;
+        font-size:3rem;
+    }
+@media (width > 1200px)
+    {
+        margin-bottom: 3.5rem;
         font-size:4rem;
     }
 `
@@ -141,9 +131,14 @@ align-items: center;
 margin-bottom:5rem;
 gap:2rem;
 flex-direction: column;
-@media only screen and (min-device-width: 1000px)
+@media (width > 1200px)
     {
+        
         flex-direction: row;
+        &:nth-of-type(even) div {
+            order: +1; 
+            }
+
     }
 `
 
@@ -160,8 +155,8 @@ flex: 2;
         margin-left:2rem;
     }  
 margin-bottom:2rem;
-font-size:2rem;
-@media only screen and (min-device-width: 1000px)
+font-size:1.4rem;
+@media (width > 639px)
     { 
         font-size:1.6rem;
     }
@@ -172,9 +167,10 @@ min-height: 20rem;
 max-height:45vh;
 object-fit: contain;  
 max-width:80%;
-@media only screen and (min-device-width: 1000px)
+@media (width > 1200px)
     {
         max-width:55%;
+        
     }
 filter: drop-shadow(4px 0 0 white) 
         drop-shadow(0 4px 0 white)
@@ -188,7 +184,7 @@ min-height: 20rem;
 max-height:45vh;
 object-fit: contain;   
 max-width:80%;
-@media only screen and (min-device-width: 1000px)
+@media (width > 1200px)
     {
         max-width:55%;
     }

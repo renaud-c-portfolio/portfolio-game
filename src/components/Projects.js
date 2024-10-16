@@ -27,6 +27,7 @@ const Projects = () =>{
 
     const [popup,setPopup] = useState([false,0,0,<></>]); 
     const [anim,setAnim] = useState(false);
+    const [doubleProject,setDoubleProject] = useState(0)
 
     let rem = 6;
     
@@ -46,41 +47,48 @@ const Projects = () =>{
 
     const mobile = window.matchMedia('(max-device-width: 1200px)').matches; 
 
-    const windowHeight = window.screen.height; 
-    const windowScroll = (windowHeight)/(projects.length)*2;
+    
 
     const [selectProject,setSelectProject] = useState(1);
-
-    const imgRef = useRef();
-     
-    const popupHandler = (elemento,target) =>{   
-        const _pos = target.getBoundingClientRect(); 
-        setPopup([true,`${Math.floor(_pos.left+_pos.width/2)}px`,`${Math.floor(_pos.bottom+15+ window.scrollY)}px`,elemento]);
-    }
-     
-    const popupOut = () =>{
-        setPopup([false,0,0,<></>]);
-    }
+ 
   
         useEffect(() => { 
+
+
             const onScroll = (e) => {   
-                if(mobile)
-                {setSelectProject(Math.max(0,Math.min(projects.length-1,Math.floor((window.scrollY-70)/windowScroll))));} 
+                let windowHeight = window.screen.height; 
+                let windowScroll = (windowHeight)/(projects.length);
+                if(window.matchMedia('(max-device-width: 1000px)').matches) { 
+
+                    if (window.matchMedia('(width > 639px)').matches)
+                    {
+                        windowScroll = 330;  
+                        setSelectProject(Math.max(0,Math.min(projects.length-1,Math.floor((window.scrollY-100)/windowScroll))))
+                        setDoubleProject(0);
+                    }
+                    else if (window.matchMedia('(width > 491px)').matches)
+                    {                 
+                        setDoubleProject(1); 
+                        windowScroll = 220; 
+                        setSelectProject(Math.max(0,Math.min(projects.length-1,Math.floor((window.scrollY-150)/windowScroll)*2))+1)
+                    }
+                    else 
+                    {   setDoubleProject(0);
+                        windowScroll = 250;
+                        setSelectProject(Math.max(0,Math.min(projects.length-1,Math.floor((window.scrollY-100)/windowScroll))))
+                        
+                    } 
+                }
             };
-            if(mobile)
-            {setSelectProject(0); window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll);  }
+            window.scrollTo(0,1)
+
+            setSelectProject(0);  
+            window.addEventListener("scroll", onScroll); return () => {window.removeEventListener("scroll", onScroll); }
             
             
           }, []); 
 
 
-    useEffect(
-        ()=>{setAnim(true);
-        setTimeout(()=>{
-            setAnim(false);
-        },2000)
-        }
-        ,[])
 
     return (
  
@@ -92,7 +100,7 @@ const Projects = () =>{
                          {
                             projects.map((project,index)=>{
                                 
-                            const select = (selectProject === index); 
+                            const select = (selectProject === index || selectProject === index+doubleProject); 
                                 return (
                                     <ProjectsPreviewDiv key={"project"+String(index)} className="mobile-preview"
                                         onMouseEnter={()=>{
@@ -141,119 +149,7 @@ width: 100%;
 max-width: 1400px; 
 margin-top:2rem;  
 color:white;  
-`
-
-const AbsoluteRelative = styled.div`
-position: sticky;
-max-width:1px;
-max-height: 1px;
-`
-
-const OneBigDivDeco = styled.div`
-pointer-events: none;
-position: absolute; 
-height:0px; 
-opacity: 0; 
-transition: 2000ms opacity ease-in-out;
-filter: drop-shadow(4px 0 0 black) 
-        drop-shadow(0 4px 0 black)
-        drop-shadow(-4px 0 0 black)
-        drop-shadow(0 -4px 0 black);
-        z-index: 1;
-&.anim{
-    opacity: 1;
-}
-`
-
- 
-const ArrowDecoSide = styled.div`
-
-position: relative;
-left:11.6rem;
-top:-4.6rem;
-width: 1.5em;
-height: 3rem;
-background-color: white;
-`
-
-const ArrowDecoSecond = styled.div`
-    position: relative;
-    left:11.6rem;
-    top:-4.6rem;
-    width:42rem;
-    height:1.5rem;
-    background-color: white;  
-
-`
-const ArrowDecoSideTwo = styled.div`
-
-position: relative;
-left:53.6rem;
-top:-6.1rem;
-width: 1.5rem;
-height: 9rem;
-background-color: white;
-`
-
-
-const ArrowDeco = styled.div`
-    position: relative;
-    left: 53.6rem;
-    top: -6.1rem;
-    width:7.5rem;
-    height:1.5rem;
-    background-color: white; 
-
-`
-const ArrowImg = styled.div` 
-background-image: url(${arrowUrl});
-background-size:contain;
-background-repeat: no-repeat;
-image-rendering: pixelated; 
-min-width: 4rem;
-max-width: 4rem;
-min-height: 4rem;
-max-width: 4rem;
-position: relative;
- top: -1.1rem;
- left:92%; 
-`
-
-const AboutFirstFlexLayer = styled.div`
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: row; 
-align-items: flex-start;
-justify-content: space-between;
-`
-
-const AboutInfoNextToPortrait = styled.div`     
-display: flex;
-flex-direction: column;
-justify-content: space-between; 
-min-height: 100%;
-`
-
-const AboutContentDiv = styled.div` 
-width: 100%;
-min-height:100%;
-color:white; 
-z-index: 3; 
-display:flex;
-flex-direction: column;     
 ` 
-
-const AboutPortrait = styled.div`  
-    position: sticky;
-    margin-top: 0.5rem;
-    background-image: url(${portraitUrl});
-    background-size:contain;
-    background-repeat: no-repeat;  
-    border-radius: 10px; 
-    box-shadow: rgba(255, 60, 33,0.5) 0.5rem 0.5rem, rgba(255, 60, 33,0.4) 1rem 1rem, rgba(255, 60, 33,0.3) 1.5rem 1.5rem, rgba(255, 60, 33,0.2) 2rem 2rem, rgba(255, 60, 33,0.1) 2.5rem 2.5rem,
-    rgba(255, 60, 33,0.5) -0.2rem -0.2rem, rgba(255, 60, 33,0.4) -0.4rem -0.4rem, rgba(255, 60, 33,0.3) -0.6rem -0.6rem, rgba(255, 60, 33,0.2) -0.8rem -0.8rem, rgba(255, 60, 33,0.1) -1.0rem -1.0rem;
-`
 
 const AboutMainTitle = styled.div` 
 width: 99%;
@@ -275,30 +171,28 @@ font-size:2.4rem;
 {
     font-size:4rem; 
 }
-`
-const AboutSubTitle = styled.div`
-margin-top:0.5rem;
-font-size:2rem;
-margin-right:2rem;
-`
+` 
 
 const AboutProjectsDiv = styled.div` 
 display: flex;
 flex-direction: row; 
 align-items: center;     
 cursor: pointer; 
-margin-top:3.6rem; 
+margin-top:1.5rem; 
 margin-bottom:1.6rem;
+padding-bottom:6rem;
 min-width: 100%; 
 
 flex-wrap: wrap;
 max-width: 70%;
-gap:3rem; 
+gap:2rem; 
 
 justify-content: center;
 
-@media (width > 1200px)
+@media (width > 639px)
 { 
+    padding-bottom:3rem;
+    margin-top:3.6rem; 
     max-width: 100%;
     gap:2rem;  
 }
@@ -307,8 +201,8 @@ justify-content: center;
 
 const ProjectsPreviewDiv = styled.div`
 pointer-events: none;
-width:90%; 
-
+ width:220px; 
+ max-width: 220px;
  @media (width > 640px)
  {
     min-width:580px; 

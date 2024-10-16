@@ -48,6 +48,7 @@ html {
   min-height: 100%; 
   scrollbar-color: ${GoodOrange} black;  
   width:100vw;
+  background: #131313;
 
   font-size:12px;
   @media (width > 320px)
