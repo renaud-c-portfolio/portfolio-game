@@ -75,7 +75,7 @@ function App() {
         <CenteringDiv>
             <MobileWrapCheckDiv>
               <MainFrame>
-                <div> Renaud Cormier</div>
+                <div> <Link to="/projects"> Renaud Cormier </Link></div>
               </MainFrame> 
 
               <FlexFrameDiv>   
