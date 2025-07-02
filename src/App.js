@@ -96,7 +96,7 @@ function App() {
             <IconsFrameDiv> 
 
 <IconsIndividualDiv> 
-    <a href={"mailto:renaud.c.portfolio@gmail.com"} target=" _blank" rel="noreferrer noopener" ><PopContactsImg src={emailUrl} popElement={<span>Send E-Mail</span>} onEnterHandler={popupHandler}  onOutHandler={popupOut}/></a> 
+    <a href={"mailto:renaud@themonstre.com"} target=" _blank" rel="noreferrer noopener" ><PopContactsImg src={emailUrl} popElement={<span>Send E-Mail</span>} onEnterHandler={popupHandler}  onOutHandler={popupOut}/></a> 
 </IconsIndividualDiv> 
 
 </IconsFrameDiv> 
