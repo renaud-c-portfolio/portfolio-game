@@ -34,7 +34,7 @@ const About = () => {
                                     Renaud is a game designer with over a decade of experience making games.
                                  </AboutParagraph>
                                  <AboutParagraph>
-                                Battling the concept of randomness, especially "random results", he likes to avoid avoids dice rolls and % critical hits. Yet despite it all he can't help but go back to fun group boardgames, or looting rare treasure chests for ultra greatswords.
+                                Battling the concept of randomness, especially "random results", he likes to avoid dice rolls and % critical hits. Yet despite it all he can't help but go back to fun group boardgames, or looting rare treasure chests for ultra greatswords.
                                 </AboutParagraph>
                                 <AboutParagraph>
                                 He likes to play old fighting games with robots in them. Those usually aren't random.
