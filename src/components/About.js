@@ -26,7 +26,7 @@ const About = () => {
                         <AboutFlexDiv>
                             <AboutText>
                             <AboutParagraph> 
-                            <EmailLink href={"mailto:renaud.c.portfolio@gmail.com"} target=" _blank" rel="noreferrer noopener" > renaud.c.portfolio@gmail.com</EmailLink> 
+                            <EmailLink href={"mailto:renaud@themonstre.com"} target=" _blank" rel="noreferrer noopener" > renaud@themonstre.com</EmailLink> 
                             
                                     
                                  </AboutParagraph>

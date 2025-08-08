@@ -1,5 +1,21 @@
 const projects = [
     {
+        name: "Iron Saga VS",
+        desc: "2D Fighting",
+        longDesc: "<p>Classic Anime Mecha meet in an epic fighting game!</p><p>Over 14 characters to choose from with different arsenals to customize their special attacks and supermoves!</p>",
+
+        details: ["<ul><li><a href='https://store.steampowered.com/app/2463800/VS/' target='_blank'>Steam Store Page</a></li><li><a href='https://www.youtube.com/watch?v=gMcds6ntUts' target='_blank'>Launch Trailer</a></li></ul><br/><p>As Global Media Director, Renaud worked on various Design and Marketing aspects of the game including directing and creating the above launch trailer, organizing offline and online events as well as coordinating with various members of the team to improve key areas of gameplay, game balance and user experience, including supervising the spectating feature.</p></br><p>His presence on the team allowed this Chinese production to have a foothold in other countries, garnering a solid competitive scene and presence at global events such as <a href='https://www.youtube.com/watch?v=cc_ABICJf5g' target='_blank'>EVO Japan</a>, <a href='https://www.youtube.com/watch?v=qjjEQ7zjlj4' target='_blank'>Combo Breaker</a> and the online <a href='https://www.youtube.com/watch?v=FiocydvVHnE' target='_blank'>TNS tournaments</a>.</p> <br/><p>Renaud is also the voice of the announcer, allowing players to hear his passion for giant robotic combat.</p>",
+            "<p>Inspired by classic titles such as Street Fighter and King of Fighters, Iron Saga VS is the fighting spinoff of Iron Saga, a mobile game also focused on classic 'Anime Mecha'.</p><br/><p>While it takes inspiration from the above titles, Iron Saga VS also brings its own unique ideas forward including the Arsenal System, which allows the same character to have multiple choices of Special Attacks and Supermoves according to the weaponry selected.</p>",
+            "<p>Iron Saga VS features rollback netcode and a spectating feature, allowing for a great online experience even with players from overseas, as well as great online tournament support.</p><br/><p>An upcoming free update will also add strategy-style gameplay for more casual and single-player focused users</p>",
+        ],
+        detailsSrc: ["game/isvs-0.png","game/isvs-1.png","game/isvs-2.png"],
+ 
+        src: "game/isvs-cover.png", 
+        vid: "game/isvs-video.mp4",
+
+        special: "current project",
+    },  
+    {
         name: "Monstrous Aspect",
         desc: "Monster Battler",
         longDesc: "<p>Create a team of powerful monsters!</p> <p> Customize your creatures!</p><p>Battle Opponents Online!</p>",

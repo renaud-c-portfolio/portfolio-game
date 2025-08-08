@@ -180,8 +180,7 @@ filter: drop-shadow(4px 0 0 white)
 
 const DetailsImage = styled.img` 
 flex: 2;
-min-height: 20rem;  
-max-height:45vh;
+min-height: 20rem;   
 object-fit: contain;   
 max-width:80%;
 @media (width > 1200px)
