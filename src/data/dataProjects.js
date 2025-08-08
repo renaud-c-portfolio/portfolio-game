@@ -8,7 +8,7 @@ const projects = [
             "<p>Inspired by classic titles such as Street Fighter and King of Fighters, Iron Saga VS is the fighting spinoff of Iron Saga, a mobile game also focused on classic 'Anime Mecha'.</p><br/><p>While it takes inspiration from the above titles, Iron Saga VS also brings its own unique ideas forward including the Arsenal System, which allows the same character to have multiple choices of Special Attacks and Supermoves according to the weaponry selected.</p>",
             "<p>Iron Saga VS features rollback netcode and a spectating feature, allowing for a great online experience even with players from overseas, as well as great online tournament support.</p><br/><p>An upcoming free update will also add strategy-style gameplay for more casual and single-player focused users</p>",
         ],
-        detailsSrc: ["game/isvs-0.png","game/isvs-1.png","game/isvs-2.png"],
+        detailsSrc: ["game/isvs-0.jpg","game/isvs-1.png","game/isvs-2.png"],
  
         src: "game/isvs-cover.png", 
         vid: "game/isvs-video.mp4",
