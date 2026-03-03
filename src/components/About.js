@@ -26,12 +26,15 @@ const About = () => {
                         <AboutFlexDiv>
                             <AboutText>
                             <AboutParagraph> 
-                            <EmailLink href={"mailto:renaud@themonstre.com"} target=" _blank" rel="noreferrer noopener" > renaud@themonstre.com</EmailLink> 
-                            
-                                    
+                            <EmailLink href={"mailto:renaud@themonstre.com"} target=" _blank" rel="noreferrer noopener" > renaud@themonstre.com</EmailLink>                          
                                  </AboutParagraph>
+                                 <AboutParagraph>
+                             </AboutParagraph>
                                 <AboutParagraph> 
                                     Renaud is a game designer with over a decade of experience making games.
+                                 </AboutParagraph>
+                                 <AboutParagraph>
+                                    In order to help bring his and his teams' designs to life, he is accomplished in Coding & Development (C#, Javascript + Typescript Fullstack, Unity, Unreal, Game Maker Studio), Video & Audio editing, Event Planning & Organization as well as Production and Team Coordination.
                                  </AboutParagraph>
                                  <AboutParagraph>
                                 Battling the concept of randomness, especially "random results", he likes to avoid dice rolls and % critical hits. Yet despite it all he can't help but go back to fun group boardgames, or looting rare treasure chests for ultra greatswords.
